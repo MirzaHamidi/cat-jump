@@ -2,14 +2,27 @@
 
 [ext_resource type="Script" uid="uid://ujw34tjwnehl" path="res://Scripts/Player.gd" id="1_72uep"]
 [ext_resource type="Texture2D" uid="uid://7wm68uek4fq6" path="res://Assets/cat.png" id="2_b2ers"]
+[ext_resource type="Script" path="res://Scripts/ClimbingCamera.gd" id="3_camera"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvjmy"]
 size = Vector2(13.399998, 15.800003)
 
+[sub_resource type="RectangleShape2D" id="FloorShape"]
+size = Vector2(1600, 48)
+
+[sub_resource type="RectangleShape2D" id="WidePlatformShape"]
+size = Vector2(180, 28)
+
+[sub_resource type="RectangleShape2D" id="MediumPlatformShape"]
+size = Vector2(140, 28)
+
+[sub_resource type="RectangleShape2D" id="NarrowPlatformShape"]
+size = Vector2(100, 28)
+
 [node name="Level" type="Node2D" unique_id=541876210]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=959073494]
-position = Vector2(524, 463)
+position = Vector2(524, 570)
 scale = Vector2(5, 5)
 script = ExtResource("1_72uep")
 
@@ -24,5 +37,156 @@ scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_b2ers")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=940329400]
+position = Vector2(524, 460)
+script = ExtResource("3_camera")
+target = NodePath("../Player")
 
 [node name="GameplayObjects" type="Node2D" parent="." unique_id=1740201245]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.11, 0.13, 0.16, 1)
+
+[node name="Floor" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(640, 660)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Floor"]
+polygon = PackedVector2Array(-800, -24, 800, -24, 800, 24, -800, 24)
+color = Color(0.32, 0.35, 0.4, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Floor"]
+shape = SubResource("FloorShape")
+
+[node name="Platform01" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(390, 550)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform01"]
+polygon = PackedVector2Array(-90, -14, 90, -14, 90, 14, -90, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform01"]
+shape = SubResource("WidePlatformShape")
+
+[node name="Platform02" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(650, 460)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform02"]
+polygon = PackedVector2Array(-70, -14, 70, -14, 70, 14, -70, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform02"]
+shape = SubResource("MediumPlatformShape")
+
+[node name="Platform03" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(900, 360)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform03"]
+polygon = PackedVector2Array(-90, -14, 90, -14, 90, 14, -90, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform03"]
+shape = SubResource("WidePlatformShape")
+
+[node name="Platform04" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(650, 250)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform04"]
+polygon = PackedVector2Array(-50, -14, 50, -14, 50, 14, -50, 14)
+color = Color(0.59, 0.63, 0.69, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform04"]
+shape = SubResource("NarrowPlatformShape")
+
+[node name="Platform05" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(390, 150)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform05"]
+polygon = PackedVector2Array(-70, -14, 70, -14, 70, 14, -70, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform05"]
+shape = SubResource("MediumPlatformShape")
+
+[node name="Platform06" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(150, 40)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform06"]
+polygon = PackedVector2Array(-90, -14, 90, -14, 90, 14, -90, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform06"]
+shape = SubResource("WidePlatformShape")
+
+[node name="Platform07" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(390, -70)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform07"]
+polygon = PackedVector2Array(-50, -14, 50, -14, 50, 14, -50, 14)
+color = Color(0.59, 0.63, 0.69, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform07"]
+shape = SubResource("NarrowPlatformShape")
+
+[node name="Platform08" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(650, -170)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform08"]
+polygon = PackedVector2Array(-70, -14, 70, -14, 70, 14, -70, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform08"]
+shape = SubResource("MediumPlatformShape")
+
+[node name="Platform09" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(920, -280)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform09"]
+polygon = PackedVector2Array(-90, -14, 90, -14, 90, 14, -90, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform09"]
+shape = SubResource("WidePlatformShape")
+
+[node name="Platform10" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(650, -390)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform10"]
+polygon = PackedVector2Array(-50, -14, 50, -14, 50, 14, -50, 14)
+color = Color(0.59, 0.63, 0.69, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform10"]
+shape = SubResource("NarrowPlatformShape")
+
+[node name="Platform11" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(390, -500)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform11"]
+polygon = PackedVector2Array(-70, -14, 70, -14, 70, 14, -70, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform11"]
+shape = SubResource("MediumPlatformShape")
+
+[node name="Platform12" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(150, -610)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform12"]
+polygon = PackedVector2Array(-90, -14, 90, -14, 90, 14, -90, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform12"]
+shape = SubResource("WidePlatformShape")
+
+[node name="Platform13" type="StaticBody2D" parent="GameplayObjects"]
+position = Vector2(430, -720)
+
+[node name="Visual" type="Polygon2D" parent="GameplayObjects/Platform13"]
+polygon = PackedVector2Array(-70, -14, 70, -14, 70, 14, -70, 14)
+color = Color(0.5, 0.54, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayObjects/Platform13"]
+shape = SubResource("MediumPlatformShape")
