@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/Levels/Chunks/ApartmentChunk.tscn" id="1_base"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/Chunks/Objects/ACUnitPlatform.tscn" id="2_ac"]
+
+[node name="Chunk_04_ACUnits" instance=ExtResource("1_base")]
+chunk_id = &"ac_units_04"
+difficulty = 2
+
+[node name="StartAC" parent="Platforms" instance=ExtResource("2_ac")]
+position = Vector2(640, -35)
+
+[node name="AC02" parent="Platforms" instance=ExtResource("2_ac")]
+position = Vector2(760, -125)
+
+[node name="AC03" parent="Platforms" instance=ExtResource("2_ac")]
+position = Vector2(880, -215)
+
+[node name="AC04" parent="Platforms" instance=ExtResource("2_ac")]
+position = Vector2(760, -305)
+
+[node name="AC05" parent="Platforms" instance=ExtResource("2_ac")]
+position = Vector2(640, -395)
+
+[node name="AC06" parent="Platforms" instance=ExtResource("2_ac")]
+position = Vector2(520, -485)
+
+[node name="AC07" parent="Platforms" instance=ExtResource("2_ac")]
+position = Vector2(640, -575)
+
+[node name="AC08" parent="Platforms" instance=ExtResource("2_ac")]
+position = Vector2(640, -665)
+
+[node name="ExitAC" parent="Platforms" instance=ExtResource("2_ac")]
+position = Vector2(640, -765)

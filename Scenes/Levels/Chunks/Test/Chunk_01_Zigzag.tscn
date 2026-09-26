@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/Levels/Chunks/ApartmentChunk.tscn" id="1_base"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/Chunks/Objects/BalconyPlatform.tscn" id="2_balcony"]
+
+[node name="Chunk_01_Zigzag" instance=ExtResource("1_base")]
+chunk_id = &"zigzag_01"
+difficulty = 1
+
+[node name="StartBalcony" parent="Platforms" instance=ExtResource("2_balcony")]
+position = Vector2(640, -35)
+
+[node name="Balcony02" parent="Platforms" instance=ExtResource("2_balcony")]
+position = Vector2(500, -125)
+
+[node name="Balcony03" parent="Platforms" instance=ExtResource("2_balcony")]
+position = Vector2(360, -215)
+
+[node name="Balcony04" parent="Platforms" instance=ExtResource("2_balcony")]
+position = Vector2(500, -305)
+
+[node name="Balcony05" parent="Platforms" instance=ExtResource("2_balcony")]
+position = Vector2(640, -395)
+
+[node name="Balcony06" parent="Platforms" instance=ExtResource("2_balcony")]
+position = Vector2(780, -485)
+
+[node name="Balcony07" parent="Platforms" instance=ExtResource("2_balcony")]
+position = Vector2(640, -575)
+
+[node name="Balcony08" parent="Platforms" instance=ExtResource("2_balcony")]
+position = Vector2(500, -665)
+
+[node name="ExitBalcony" parent="Platforms" instance=ExtResource("2_balcony")]
+position = Vector2(640, -765)

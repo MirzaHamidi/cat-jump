@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="RectangleShape2D" id="WindowLedgeCollision"]
+size = Vector2(160, 18)
+
+[node name="WindowPlatform" type="StaticBody2D"]
+
+[node name="WindowGlass" type="Polygon2D" parent="."]
+position = Vector2(0, -48)
+color = Color(0.08, 0.43, 0.56, 1)
+polygon = PackedVector2Array(-55, -30, 55, -30, 55, 30, -55, 30)
+
+[node name="WindowFrameLeft" type="Polygon2D" parent="."]
+position = Vector2(-51, -48)
+color = Color(0.29, 0.64, 0.71, 1)
+polygon = PackedVector2Array(-4, -30, 4, -30, 4, 30, -4, 30)
+
+[node name="WindowFrameRight" type="Polygon2D" parent="."]
+position = Vector2(51, -48)
+color = Color(0.29, 0.64, 0.71, 1)
+polygon = PackedVector2Array(-4, -30, 4, -30, 4, 30, -4, 30)
+
+[node name="WindowFrameTop" type="Polygon2D" parent="."]
+position = Vector2(0, -78)
+color = Color(0.29, 0.64, 0.71, 1)
+polygon = PackedVector2Array(-55, -4, 55, -4, 55, 4, -55, 4)
+
+[node name="WindowFrameBottom" type="Polygon2D" parent="."]
+position = Vector2(0, -18)
+color = Color(0.29, 0.64, 0.71, 1)
+polygon = PackedVector2Array(-55, -4, 55, -4, 55, 4, -55, 4)
+
+[node name="WindowMullionVertical" type="Polygon2D" parent="."]
+position = Vector2(0, -48)
+color = Color(0.29, 0.64, 0.71, 1)
+polygon = PackedVector2Array(-3, -30, 3, -30, 3, 30, -3, 30)
+
+[node name="WindowMullionHorizontal" type="Polygon2D" parent="."]
+position = Vector2(0, -48)
+color = Color(0.29, 0.64, 0.71, 1)
+polygon = PackedVector2Array(-55, -3, 55, -3, 55, 3, -55, 3)
+
+[node name="Ledge" type="Polygon2D" parent="."]
+color = Color(0.24, 0.72, 0.82, 1)
+polygon = PackedVector2Array(-80, -9, 80, -9, 80, 9, -80, 9)
+
+[node name="LedgeHighlight" type="Polygon2D" parent="."]
+color = Color(0.55, 0.88, 0.9, 1)
+polygon = PackedVector2Array(-80, -9, 80, -9, 80, -4, -80, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WindowLedgeCollision")

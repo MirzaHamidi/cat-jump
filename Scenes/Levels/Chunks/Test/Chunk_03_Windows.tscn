@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/Levels/Chunks/ApartmentChunk.tscn" id="1_base"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/Chunks/Objects/WindowPlatform.tscn" id="2_window"]
+
+[node name="Chunk_03_Windows" instance=ExtResource("1_base")]
+chunk_id = &"windows_03"
+difficulty = 1
+
+[node name="StartWindow" parent="Platforms" instance=ExtResource("2_window")]
+position = Vector2(640, -35)
+
+[node name="Window02" parent="Platforms" instance=ExtResource("2_window")]
+position = Vector2(750, -125)
+
+[node name="Window03" parent="Platforms" instance=ExtResource("2_window")]
+position = Vector2(860, -215)
+
+[node name="Window04" parent="Platforms" instance=ExtResource("2_window")]
+position = Vector2(750, -305)
+
+[node name="Window05" parent="Platforms" instance=ExtResource("2_window")]
+position = Vector2(640, -395)
+
+[node name="Window06" parent="Platforms" instance=ExtResource("2_window")]
+position = Vector2(530, -485)
+
+[node name="Window07" parent="Platforms" instance=ExtResource("2_window")]
+position = Vector2(640, -575)
+
+[node name="Window08" parent="Platforms" instance=ExtResource("2_window")]
+position = Vector2(640, -665)
+
+[node name="ExitWindow" parent="Platforms" instance=ExtResource("2_window")]
+position = Vector2(640, -765)
