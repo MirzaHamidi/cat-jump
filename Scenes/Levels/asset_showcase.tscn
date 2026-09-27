@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/BuildingFacadePiece.tscn" id="1_facade"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/FireEscapePlatform.tscn" id="2_fire_platform"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/FireEscapeStair.tscn" id="3_fire_stair"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/ACUnit.tscn" id="4_ac_unit"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/PipeClimb.tscn" id="5_pipe"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/Balcony.tscn" id="6_balcony"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/Windows/WindowForbidden.tscn" id="7_forbidden"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/Windows/WindowHater.tscn" id="8_hater"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/Windows/WindowLover.tscn" id="9_lover"]
+[ext_resource type="Script" uid="uid://ujw34tjwnehl" path="res://Scripts/Player.gd" id="10_player_script"]
+[ext_resource type="Texture2D" uid="uid://7wm68uek4fq6" path="res://Assets/cat.png" id="11_cat"]
+
+[sub_resource type="RectangleShape2D" id="PlayerCollision"]
+size = Vector2(13.399998, 15.800003)
+
+[sub_resource type="RectangleShape2D" id="ShowcaseFloorCollision"]
+size = Vector2(1400, 32)
+
+[sub_resource type="RectangleShape2D" id="StartPadCollision"]
+size = Vector2(180, 16)
+
+[node name="AssetShowcase" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.09, 0.11, 0.15, 1)
+
+[node name="EnvironmentSamples" type="Node2D" parent="."]
+
+[node name="BuildingFacadePiece" parent="EnvironmentSamples" instance=ExtResource("1_facade")]
+position = Vector2(110, 200)
+
+[node name="FireEscapePlatform" parent="EnvironmentSamples" instance=ExtResource("2_fire_platform")]
+position = Vector2(310, 300)
+
+[node name="FireEscapeStair" parent="EnvironmentSamples" instance=ExtResource("3_fire_stair")]
+position = Vector2(510, 190)
+
+[node name="ACUnit" parent="EnvironmentSamples" instance=ExtResource("4_ac_unit")]
+position = Vector2(710, 304)
+
+[node name="PipeClimb" parent="EnvironmentSamples" instance=ExtResource("5_pipe")]
+position = Vector2(910, 190)
+
+[node name="Balcony" parent="EnvironmentSamples" instance=ExtResource("6_balcony")]
+position = Vector2(1110, 294)
+
+[node name="WindowSamples" type="Node2D" parent="."]
+
+[node name="WindowForbidden" parent="WindowSamples" instance=ExtResource("7_forbidden")]
+position = Vector2(360, 520)
+
+[node name="WindowHater" parent="WindowSamples" instance=ExtResource("8_hater")]
+position = Vector2(640, 520)
+
+[node name="WindowLover" parent="WindowSamples" instance=ExtResource("9_lover")]
+position = Vector2(920, 520)
+
+[node name="ShowcaseGround" type="StaticBody2D" parent="."]
+position = Vector2(640, 656)
+
+[node name="Visual" type="Polygon2D" parent="ShowcaseGround"]
+color = Color(0.42, 0.46, 0.5, 1)
+polygon = PackedVector2Array(-700, -16, 700, -16, 700, 16, -700, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShowcaseGround"]
+shape = SubResource("ShowcaseFloorCollision")
+
+[node name="StartPad" type="StaticBody2D" parent="."]
+position = Vector2(110, 420)
+
+[node name="Visual" type="Polygon2D" parent="StartPad"]
+color = Color(0.57, 0.6, 0.63, 1)
+polygon = PackedVector2Array(-90, -8, 90, -8, 90, 8, -90, 8)
+
+[node name="StandCollision" type="CollisionShape2D" parent="StartPad"]
+one_way_collision = true
+shape = SubResource("StartPadCollision")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(110, 373)
+scale = Vector2(5, 5)
+script = ExtResource("10_player_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1.1, -0.1)
+shape = SubResource("PlayerCollision")
+
+[node name="Cat" type="Sprite2D" parent="Player"]
+texture_filter = 1
+texture = ExtResource("11_cat")
+
+[node name="ShowcaseCamera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+enabled = true

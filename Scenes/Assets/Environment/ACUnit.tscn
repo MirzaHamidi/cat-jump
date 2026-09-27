@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="RectangleShape2D" id="StandShape"]
+size = Vector2(144, 14)
+
+[node name="ACUnit" type="StaticBody2D"]
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Case" type="Polygon2D" parent="Visual"]
+color = Color(0.54, 0.61, 0.66, 1)
+polygon = PackedVector2Array(-64, 22, 64, 22, 64, 82, -64, 82)
+
+[node name="TopSurface" type="Polygon2D" parent="Visual"]
+color = Color(0.72, 0.78, 0.81, 1)
+polygon = PackedVector2Array(-72, 6, 72, 6, 64, 24, -64, 24)
+
+[node name="FrontPanel" type="Polygon2D" parent="Visual"]
+color = Color(0.45, 0.53, 0.59, 1)
+polygon = PackedVector2Array(-56, 32, 56, 32, 56, 72, -56, 72)
+
+[node name="Vent_01" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-44, 40, -44, 66)
+width = 3.0
+default_color = Color(0.28, 0.36, 0.42, 1)
+
+[node name="Vent_02" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-30, 40, -30, 66)
+width = 3.0
+default_color = Color(0.28, 0.36, 0.42, 1)
+
+[node name="Vent_03" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-16, 40, -16, 66)
+width = 3.0
+default_color = Color(0.28, 0.36, 0.42, 1)
+
+[node name="Vent_04" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-2, 40, -2, 66)
+width = 3.0
+default_color = Color(0.28, 0.36, 0.42, 1)
+
+[node name="Vent_05" type="Line2D" parent="Visual"]
+points = PackedVector2Array(12, 40, 12, 66)
+width = 3.0
+default_color = Color(0.28, 0.36, 0.42, 1)
+
+[node name="Vent_06" type="Line2D" parent="Visual"]
+points = PackedVector2Array(26, 40, 26, 66)
+width = 3.0
+default_color = Color(0.28, 0.36, 0.42, 1)
+
+[node name="Vent_07" type="Line2D" parent="Visual"]
+points = PackedVector2Array(40, 40, 40, 66)
+width = 3.0
+default_color = Color(0.28, 0.36, 0.42, 1)
+
+[node name="StandCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+one_way_collision = true
+shape = SubResource("StandShape")

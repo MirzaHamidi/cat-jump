@@ -1,0 +1,64 @@
+[gd_scene format=3]
+
+[node name="BuildingFacadePiece" type="Node2D"]
+
+[node name="Visual" type="Polygon2D" parent="."]
+color = Color(0.31, 0.19, 0.16, 1)
+polygon = PackedVector2Array(-100, -120, 100, -120, 100, 120, -100, 120)
+
+[node name="BrickCourses" type="Node2D" parent="."]
+
+[node name="Course_01" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(-100, -80, 100, -80)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Course_02" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(-100, -40, 100, -40)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Course_03" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(-100, 0, 100, 0)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Course_04" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(-100, 40, 100, 40)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Course_05" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(-100, 80, 100, 80)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Joint_A" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(-45, -120, -45, -80)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Joint_B" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(42, -80, 42, -40)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Joint_C" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(-45, -40, -45, 0)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Joint_D" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(42, 0, 42, 40)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Joint_E" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(-45, 40, -45, 80)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)
+
+[node name="Joint_F" type="Line2D" parent="BrickCourses"]
+points = PackedVector2Array(42, 80, 42, 120)
+width = 2.0
+default_color = Color(0.42, 0.27, 0.23, 1)

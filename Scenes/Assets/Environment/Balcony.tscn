@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="RectangleShape2D" id="StandShape"]
+size = Vector2(200, 16)
+
+[node name="Balcony" type="StaticBody2D"]
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="BackWall" type="Polygon2D" parent="Visual"]
+color = Color(0.27, 0.2, 0.18, 1)
+polygon = PackedVector2Array(-110, -94, 110, -94, 110, 28, -110, 28)
+
+[node name="Floor" type="Polygon2D" parent="Visual"]
+color = Color(0.45, 0.32, 0.24, 1)
+polygon = PackedVector2Array(-110, 28, 110, 28, 110, 44, -110, 44)
+
+[node name="Railing" type="Node2D" parent="Visual"]
+
+[node name="LeftPost" type="Polygon2D" parent="Visual/Railing"]
+color = Color(0.23, 0.27, 0.29, 1)
+polygon = PackedVector2Array(-101, -25, -94, -25, -94, 28, -101, 28)
+
+[node name="RightPost" type="Polygon2D" parent="Visual/Railing"]
+color = Color(0.23, 0.27, 0.29, 1)
+polygon = PackedVector2Array(94, -25, 101, -25, 101, 28, 94, 28)
+
+[node name="TopRail" type="Polygon2D" parent="Visual/Railing"]
+color = Color(0.23, 0.27, 0.29, 1)
+polygon = PackedVector2Array(-101, -25, 101, -25, 101, -17, -101, -17)
+
+[node name="MidRail" type="Polygon2D" parent="Visual/Railing"]
+color = Color(0.23, 0.27, 0.29, 1)
+polygon = PackedVector2Array(-97, 4, 97, 4, 97, 10, -97, 10)
+
+[node name="StandCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 36)
+one_way_collision = true
+shape = SubResource("StandShape")

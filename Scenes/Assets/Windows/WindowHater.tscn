@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="RectangleShape2D" id="LedgeShape"]
+size = Vector2(190, 16)
+
+[node name="WindowHater" type="StaticBody2D"]
+
+[node name="Glass" type="Polygon2D" parent="."]
+color = Color(0.43, 0.2, 0.15, 1)
+polygon = PackedVector2Array(-68, -48, 68, -48, 68, 20, -68, 20)
+
+[node name="Frame" type="Node2D" parent="."]
+
+[node name="Top" type="Polygon2D" parent="Frame"]
+color = Color(0.76, 0.4, 0.23, 1)
+polygon = PackedVector2Array(-80, -58, 80, -58, 80, -48, -80, -48)
+
+[node name="Left" type="Polygon2D" parent="Frame"]
+color = Color(0.76, 0.4, 0.23, 1)
+polygon = PackedVector2Array(-80, -58, -68, -58, -68, 32, -80, 32)
+
+[node name="Right" type="Polygon2D" parent="Frame"]
+color = Color(0.76, 0.4, 0.23, 1)
+polygon = PackedVector2Array(68, -58, 80, -58, 80, 32, 68, 32)
+
+[node name="Bottom" type="Polygon2D" parent="Frame"]
+color = Color(0.76, 0.4, 0.23, 1)
+polygon = PackedVector2Array(-80, 20, 80, 20, 80, 32, -80, 32)
+
+[node name="HostileAccents" type="Node2D" parent="."]
+
+[node name="AngryBrow_Left" type="Polygon2D" parent="HostileAccents"]
+color = Color(0.98, 0.39, 0.12, 1)
+polygon = PackedVector2Array(-62, -34, -16, -21, -18, -13, -62, -25)
+
+[node name="AngryBrow_Right" type="Polygon2D" parent="HostileAccents"]
+color = Color(0.98, 0.39, 0.12, 1)
+polygon = PackedVector2Array(16, -21, 62, -34, 62, -25, 18, -13)
+
+[node name="WarningSlash" type="Line2D" parent="HostileAccents"]
+points = PackedVector2Array(-45, 13, 45, 1)
+width = 6.0
+default_color = Color(0.96, 0.53, 0.16, 1)
+
+[node name="Sill" type="Polygon2D" parent="."]
+color = Color(0.89, 0.62, 0.43, 1)
+polygon = PackedVector2Array(-95, 32, 95, 32, 95, 48, -95, 48)
+
+[node name="LedgeCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 40)
+one_way_collision = true
+shape = SubResource("LedgeShape")

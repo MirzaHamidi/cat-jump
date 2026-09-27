@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="CapsuleShape2D" id="StairInteractionShape"]
+radius = 34.0
+height = 220.0
+
+[node name="FireEscapeStair" type="Node2D"]
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="LeftRail" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-27, -105, -27, 105)
+width = 8.0
+default_color = Color(0.23, 0.28, 0.32, 1)
+
+[node name="RightRail" type="Line2D" parent="Visual"]
+points = PackedVector2Array(27, -105, 27, 105)
+width = 8.0
+default_color = Color(0.23, 0.28, 0.32, 1)
+
+[node name="Rung_01" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-27, -84, 27, -84)
+width = 6.0
+default_color = Color(0.47, 0.53, 0.58, 1)
+
+[node name="Rung_02" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-27, -60, 27, -60)
+width = 6.0
+default_color = Color(0.47, 0.53, 0.58, 1)
+
+[node name="Rung_03" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-27, -36, 27, -36)
+width = 6.0
+default_color = Color(0.47, 0.53, 0.58, 1)
+
+[node name="Rung_04" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-27, -12, 27, -12)
+width = 6.0
+default_color = Color(0.47, 0.53, 0.58, 1)
+
+[node name="Rung_05" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-27, 12, 27, 12)
+width = 6.0
+default_color = Color(0.47, 0.53, 0.58, 1)
+
+[node name="Rung_06" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-27, 36, 27, 36)
+width = 6.0
+default_color = Color(0.47, 0.53, 0.58, 1)
+
+[node name="Rung_07" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-27, 60, 27, 60)
+width = 6.0
+default_color = Color(0.47, 0.53, 0.58, 1)
+
+[node name="Rung_08" type="Line2D" parent="Visual"]
+points = PackedVector2Array(-27, 84, 27, 84)
+width = 6.0
+default_color = Color(0.47, 0.53, 0.58, 1)
+
+[node name="StairInteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 1
+
+[node name="InteractionShape" type="CollisionShape2D" parent="StairInteractionArea"]
+shape = SubResource("StairInteractionShape")
