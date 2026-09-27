@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="RectangleShape2D" id="LedgeCollision"]
+size = Vector2(260, 16)
+
+[node name="NormalWindow" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 1
+
+[node name="Glass" type="Polygon2D" parent="."]
+color = Color(0.17, 0.62, 0.78, 1)
+polygon = PackedVector2Array(-88, -32, 88, -32, 88, 26, -88, 26)
+
+[node name="Frame" type="Node2D" parent="."]
+
+[node name="Top" type="Polygon2D" parent="Frame"]
+color = Color(0.61, 0.72, 0.79, 1)
+polygon = PackedVector2Array(-100, -42, 100, -42, 100, -32, -100, -32)
+
+[node name="Left" type="Polygon2D" parent="Frame"]
+color = Color(0.61, 0.72, 0.79, 1)
+polygon = PackedVector2Array(-100, -42, -88, -42, -88, 34, -100, 34)
+
+[node name="Right" type="Polygon2D" parent="Frame"]
+color = Color(0.61, 0.72, 0.79, 1)
+polygon = PackedVector2Array(88, -42, 100, -42, 100, 34, 88, 34)
+
+[node name="Bottom" type="Polygon2D" parent="Frame"]
+color = Color(0.61, 0.72, 0.79, 1)
+polygon = PackedVector2Array(-100, 26, 100, 26, 100, 34, -100, 34)
+
+[node name="CenterVertical" type="Polygon2D" parent="Frame"]
+color = Color(0.45, 0.59, 0.68, 1)
+polygon = PackedVector2Array(-4, -32, 4, -32, 4, 26, -4, 26)
+
+[node name="CenterHorizontal" type="Polygon2D" parent="Frame"]
+color = Color(0.45, 0.59, 0.68, 1)
+polygon = PackedVector2Array(-88, -4, 88, -4, 88, 4, -88, 4)
+
+[node name="LedgeVisual" type="Polygon2D" parent="."]
+color = Color(0.76, 0.88, 0.94, 1)
+polygon = PackedVector2Array(-130, 34, 130, 34, 130, 50, -130, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 42)
+shape = SubResource("LedgeCollision")
