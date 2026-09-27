@@ -43,4 +43,5 @@ polygon = PackedVector2Array(-130, 34, 130, 34, 130, 50, -130, 50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 42)
+one_way_collision = true
 shape = SubResource("LedgeCollision")
