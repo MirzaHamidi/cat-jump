@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Scripts/WindowRow.gd" id="1_row"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/StandardWindow.tscn" id="2_window"]
+
+[node name="WindowRow" type="Node2D"]
+script = ExtResource("1_row")
+
+[node name="Window0" parent="." instance=ExtResource("2_window")]
+position = Vector2(220, 0)
+
+[node name="Window1" parent="." instance=ExtResource("2_window")]
+position = Vector2(500, 0)
+
+[node name="Window2" parent="." instance=ExtResource("2_window")]
+position = Vector2(780, 0)
+
+[node name="Window3" parent="." instance=ExtResource("2_window")]
+position = Vector2(1060, 0)

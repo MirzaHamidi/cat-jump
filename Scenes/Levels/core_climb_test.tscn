@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_player"]
+[ext_resource type="Texture2D" path="res://Assets/cat.png" id="2_cat"]
+[ext_resource type="Script" path="res://Scripts/BuildingScroller.gd" id="3_scroller"]
+
+[sub_resource type="RectangleShape2D" id="PlayerShape"]
+size = Vector2(13.399998, 15.800003)
+
+[sub_resource type="RectangleShape2D" id="GroundShape"]
+size = Vector2(1280, 20)
+
+[node name="CoreClimbTest" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="WallColor" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.31, 0.22, 0.25, 1)
+
+[node name="StartGround" type="StaticBody2D" parent="."]
+position = Vector2(640, 650)
+
+[node name="GroundVisual" type="Polygon2D" parent="StartGround"]
+color = Color(0.23, 0.24, 0.27, 1)
+polygon = PackedVector2Array(-640, -10, 640, -10, 640, 10, -640, 10)
+
+[node name="GroundCollision" type="CollisionShape2D" parent="StartGround"]
+shape = SubResource("GroundShape")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(500, 494)
+scale = Vector2(5, 5)
+z_index = 10
+script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1.0999985, -0.099998474)
+shape = SubResource("PlayerShape")
+
+[node name="Cat" type="Sprite2D" parent="Player"]
+texture_filter = 1
+texture = ExtResource("2_cat")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="FloorUI" type="CanvasLayer" parent="."]
+
+[node name="FloorLabel" type="Label" parent="FloorUI"]
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 240.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 0.92, 0.75, 1)
+text = "FLOOR 001"
+
+[node name="BuildingScroller" type="Node2D" parent="." node_paths=PackedStringArray("player", "camera", "floor_label")]
+script = ExtResource("3_scroller")
+player = NodePath("../Player")
+camera = NodePath("../Camera2D")
+floor_label = NodePath("../FloorUI/FloorLabel")
+
+[node name="Rows" type="Node2D" parent="BuildingScroller"]
