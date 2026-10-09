@@ -2,13 +2,19 @@
 
 Status: authoritative production plan, prepared 2026-10-09. Numeric rules are governed by 10_MASTER_DECISIONS.md.
 
+## Story premise
+
+The player is a cat who lives with its human on the top floor of a 1000-floor plaza. Before leaving for work, the human tells the cat not to cause trouble. The cat secretly leaves the home after the human and spends the day wandering around. Near sunset, the cat realizes the human will soon return from work. There is no safe route back home, so the cat must climb the outside of the plaza, using the facade and its windows to get back to the top before the human arrives and discovers what happened.
+
+The title **Human Must Never Know** refers to this race: the cat must make it home before its human and keep the day's disobedience secret.
+
 ## Pitch
 
-A cat secretly climbs the outside of its apartment building at night. It jumps between familiar pieces of the facade, spends a limited reserve for one extra midair leap, and dodges clearly signaled birds. Empty energy or a bird collision interrupts the climb with a short, predictable turn-based fight. Reach the roof before all nine Overworld Lives are lost.
+A cat races back toward its home at the top of a 1000-floor plaza before its human returns from work. With no safe way back, it climbs the outside facade using windows and other building traversal pieces, spends a limited Energy reserve for an extra midair leap, and dodges clearly signaled birds. Empty Energy or a bird collision interrupts the climb with a short, predictable turn-based fight. Reach the planned run's rooftop goal before all nine Overworld Lives are lost.
 
 ## Player fantasy
 
-Be a nimble, mischievous cat making a risky climb while the humans are unaware. The fantasy comes from responsive movement, readable danger, and the choice between a safe route and a quicker one. The title supplies the playful secrecy; no human NPC or stealth subsystem is required.
+Be a nimble, mischievous cat desperately trying to cover up its day out before its human gets home. The fantasy comes from responsive movement, readable danger, the choice between a safe route and a quicker one, and the story pressure of secretly racing home. No human NPC gameplay or stealth subsystem is required by the current production plan.
 
 ## Design pillars
 
@@ -40,7 +46,7 @@ Be a nimble, mischievous cat making a risky climb while the humans are unaware. 
 
 ## Target length and difficulty
 
-The first production layout is **50 numbered climb tiers**. A tier is the HUD/design unit used by this prototype, not a claim about architectural storey height. Target a first successful run of **2-4 minutes** and a practiced clean run of roughly **90-150 seconds**. These are design targets; Session 12 must measure real play before the values are treated as validated.
+The first production layout is **50 numbered climb tiers**. A tier is the HUD/design unit used by this prototype, not a claim about architectural storey height or the full 1000-floor fiction. Target a first successful run of **2-4 minutes** and a practiced clean run of roughly **90-150 seconds**. These are design targets; Session 12 must measure real play before the values are treated as validated.
 
 Difficulty ramps through spatial variety, optional Energy shortcuts, narrowing landing surfaces, and Bird timing. It does not ramp by increasing enemy stats, adding systems, or making the safe path impossible.
 
