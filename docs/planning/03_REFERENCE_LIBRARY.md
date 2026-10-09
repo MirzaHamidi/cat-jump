@@ -1,5 +1,7 @@
 # CatJump — Game Manager Reference Library
 
+> **Status: supplemental source catalog (2026-10-09).** The applied research and design implications for this plan are summarized in `09_REFERENCE_AND_RESEARCH_NOTES.md`. Consult this library as a starting point, while the current gameplay rules and technical decisions remain in the corresponding current planning documents and `10_MASTER_DECISIONS.md`.
+
 This file gives the Game Manager a curated starting library for planning, architecture, feel, balancing, level design, and QA.
 
 The manager should use legitimate public documentation, previews, publisher pages, papers, and legally accessible material. Do not copy copyrighted book text into project docs. Summarize principles and cite the source used.

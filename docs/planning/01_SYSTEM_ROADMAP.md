@@ -1,5 +1,7 @@
 # CatJump — System Roadmap
 
+> **Status: superseded draft (2026-10-09).** This earlier 28-session outline is retained for history only. Implementers must follow the current 18-session sequence in `06_DEVELOPMENT_ROADMAP.md`; do not execute or combine sessions from this file. Current game rules and decisions are in `02_GAMEPLAY_SYSTEM_SPEC.md`, `03_TURN_BASED_COMBAT_SPEC.md`, and `10_MASTER_DECISIONS.md`.
+
 This roadmap is intentionally organized as **one primary system per coder session**.
 
 The manager may reorder sessions only when repository reality or a discovered dependency requires it. Any reordering must be documented.

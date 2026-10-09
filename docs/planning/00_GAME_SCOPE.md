@@ -1,8 +1,10 @@
-# CatJump / Human Must Never Know — Authoritative Game Scope
+# CatJump / Human Must Never Know — Earlier Game Scope Draft
 
-Status: **Active design baseline**
+Status: **Retained early draft; superseded by the current planning package**
 Engine: **Godot 4.7**
 Target: **small, finite, polished arcade game**
+
+> **Authority note (2026-10-09):** This file was committed to `origin/main` while the comprehensive planning session was in progress. Keep it for history and context, but do not use its unresolved questions or values as implementation requirements. The current authority is `00_GAME_VISION_AND_SCOPE.md`, `02_GAMEPLAY_SYSTEM_SPEC.md`, `03_TURN_BASED_COMBAT_SPEC.md`, and especially `10_MASTER_DECISIONS.md` for resolved values.
 
 ---
 

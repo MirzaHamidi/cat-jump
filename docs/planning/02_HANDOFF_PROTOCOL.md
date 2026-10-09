@@ -1,5 +1,7 @@
 # CatJump — Manager → Coder Handoff Protocol
 
+> **Status: supplemental process guidance (2026-10-09).** Use `07_DEVELOPER_HANDOFF_TEMPLATE.md` as the authoritative per-session handoff template and `06_DEVELOPMENT_ROADMAP.md` for session boundaries and allowed file scope. This protocol remains useful for manager review and session readiness; it does not define gameplay or override those documents.
+
 Every coding session must begin from a written handoff following this structure.
 
 The purpose is to prevent the coder AI from guessing game design, expanding scope, or touching unrelated systems.

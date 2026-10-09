@@ -8,6 +8,27 @@ The Game Manager is **not** the implementation coder unless explicitly instructe
 
 The project is intentionally narrow. The manager must protect scope aggressively.
 
+## Current planning authority
+
+This file defines the Game Manager role and process. The current, fully resolved game design and implementation contract is the 12-document set below, especially `docs/planning/10_MASTER_DECISIONS.md` for locked values and `docs/planning/06_DEVELOPMENT_ROADMAP.md` for the session order.
+
+- `docs/planning/00_GAME_VISION_AND_SCOPE.md`
+- `docs/planning/01_CURRENT_REPOSITORY_AUDIT.md`
+- `docs/planning/02_GAMEPLAY_SYSTEM_SPEC.md`
+- `docs/planning/03_TURN_BASED_COMBAT_SPEC.md`
+- `docs/planning/04_LEVEL_DESIGN_AND_PROGRESSION.md`
+- `docs/planning/05_TECHNICAL_ARCHITECTURE.md`
+- `docs/planning/06_DEVELOPMENT_ROADMAP.md`
+- `docs/planning/07_DEVELOPER_HANDOFF_TEMPLATE.md`
+- `docs/planning/08_QA_AND_REGRESSION_PLAN.md`
+- `docs/planning/09_REFERENCE_AND_RESEARCH_NOTES.md`
+- `docs/planning/10_MASTER_DECISIONS.md`
+- `docs/planning/11_GODOT_PROJECT_CONVENTIONS.md`
+
+The previously committed `docs/planning/00_GAME_SCOPE.md` and `docs/planning/01_SYSTEM_ROADMAP.md` are retained as early planning drafts. Their open design questions and 28-session sequence are superseded; do not use them to direct implementation. `docs/planning/02_HANDOFF_PROTOCOL.md` remains supplementary process guidance, while `07_DEVELOPER_HANDOFF_TEMPLATE.md` is the current copyable per-session template. `03_REFERENCE_LIBRARY.md` remains a supplementary source catalog; applied research decisions are recorded in `09_REFERENCE_AND_RESEARCH_NOTES.md`.
+
+If an early draft, this operating contract, or a current planning document appears to conflict, follow the user's current instructions and the detailed current decision/spec documents. Do not re-open a locked design question without reproducible implementation evidence or a user scope change.
+
 ---
 
 ## Core Product Definition
@@ -121,7 +142,7 @@ Default planning rule unless explicitly revised in an approved design decision:
 - entering Fight Mode costs run time
 - the manager must document whether the timer actively ticks during the fight scene or applies an equivalent encounter time cost
 
-The coder must not invent timing behavior independently.
+The current planning package resolves this: the timer actively ticks during Fight and transitions, pauses only with SceneTree pause, and stops at Victory/Game Over. The coder must not invent timing behavior independently.
 
 ---
 
@@ -159,14 +180,9 @@ Before planning a system, inspect all relevant current scripts/scenes and recent
 
 ### 2. Maintain authoritative planning files
 
-The manager owns the following documents:
+The manager owns the current 12-document planning set listed in **Current planning authority** above. Keep the earlier scope/roadmap drafts clearly marked as superseded so future coders do not receive competing rule sets.
 
-- `docs/planning/00_GAME_SCOPE.md`
-- `docs/planning/01_SYSTEM_ROADMAP.md`
-- `docs/planning/02_HANDOFF_PROTOCOL.md`
-- `docs/planning/03_REFERENCE_LIBRARY.md`
-
-Update them when approved design decisions change.
+Update the current decision/spec documents when implementation evidence or an approved user scope change changes a rule. Keep the handoff template and QA plan aligned with those decisions.
 
 ### 3. One completed system per coder session
 
@@ -355,9 +371,9 @@ Never advance the roadmap based only on “implemented” or “should work.”
 
 ---
 
-## Initial Open Design Questions the Manager Must Resolve Before Relevant Coding
+## Initial Design Questions — Resolved in the Current Planning Package
 
-These are deliberately not silently guessed:
+These questions are frozen in the current planning package. Refer to the indicated decision/spec entry; do not treat this historical list as still open:
 
 1. Exact finite building length / floor count. Initial planning target may use ~50 floors, but the manager should verify pacing against traversal metrics before freezing it.
 2. Exact Energy maximum and double-jump Energy cost.
@@ -371,7 +387,7 @@ These are deliberately not silently guessed:
 10. Whether the run timer literally continues during fights or receives an equivalent fixed/actual encounter-time cost.
 11. Production gameplay scene migration: how/when `core_climb_test.tscn` replaces the older `game.tscn` prototype.
 
-Each question must be resolved before the coder session that depends on it.
+The 50-tier target, Energy values, double-jump cost, Energy loss state, exact five-floor penalty, Bird timing/warning, Bird-fight consequences, combat actions, timer behavior, and production scene strategy are all resolved in `10_MASTER_DECISIONS.md` and the linked system specs. Revisit only if playtest evidence disproves a stated initial target or the user changes scope.
 
 ---
 

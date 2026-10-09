@@ -5,7 +5,7 @@ Audit basis: working tree inspected on 2026-10-09. This document describes both 
 ## Repository state
 
 - Repository: https://github.com/MirzaHamidi/cat-jump
-- Branch and HEAD: main at 1d093c6f544107dfdb5a536fa9aa30fe5cd152a3, also origin/main.
+- Snapshot at audit start: branch `main` at `1d093c6f544107dfdb5a536fa9aa30fe5cd152a3`, then also `origin/main`. During this planning session `origin/main` advanced with four early planning documents. Those commits were merged; the early drafts are retained and labeled by authority/supersession notes, and the current 12-document package in `docs/planning/` resolves the design and replaces the earlier roadmap.
 - Project settings: project.godot config version 5, features include Godot 4.7 and Mobile, viewport 1280x720, canvas-items stretch. The configured main scene UID resolves to Scenes/Levels/game.tscn.
 - Existing InputMap controls use A/D for move_left/move_right and Space for jump. The starting project has no pipe, Fight, or pause input actions.
 - The title menu is Scenes/Levels/main_menu.tscn, a visual title composition with cat art and title text. It currently has no Start button or script.
