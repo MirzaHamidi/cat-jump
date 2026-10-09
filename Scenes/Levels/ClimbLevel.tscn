@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[node name="ClimbLevel" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Traversal" type="Node2D" parent="."]
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Camera" type="Node2D" parent="."]

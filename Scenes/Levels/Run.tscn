@@ -1,0 +1,49 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/RunController.gd" id="1_run_controller"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/ClimbLevel.tscn" id="2_climb_level"]
+
+[node name="Run" type="Node2D"]
+script = ExtResource("1_run_controller")
+
+[node name="RunState" type="Node" parent="."]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="ClimbLevel" parent="World" instance=ExtResource("2_climb_level")]
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="HUDLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FightLayer" type="CanvasLayer" parent="."]
+
+[node name="Fight" type="Control" parent="FightLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OutcomeLayer" type="CanvasLayer" parent="."]
+
+[node name="Outcome" type="Control" parent="OutcomeLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" type="Control" parent="PauseLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

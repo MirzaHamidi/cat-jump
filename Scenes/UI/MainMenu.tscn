@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://5i25wm4v42vr"]
+
+[ext_resource type="Texture2D" uid="uid://7wm68uek4fq6" path="res://Assets/cat.png" id="1_vytfc"]
+[ext_resource type="FontFile" uid="uid://l6ag6n3mv5hq" path="res://Assets/UI/Fonts/Splatch.ttf" id="2_t475i"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="3_script"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/Run.tscn" id="4_run"]
+
+[node name="MainMenu" type="Node2D" unique_id=588153692]
+script = ExtResource("3_script")
+run_scene = ExtResource("4_run")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1516272472]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Cat" type="Sprite2D" parent="." unique_id=1785172783]
+texture_filter = 1
+position = Vector2(176, 416)
+rotation = -0.38626316
+scale = Vector2(15, 15)
+texture = ExtResource("1_vytfc")
+
+[node name="Label" type="Label" parent="." unique_id=1444457638]
+texture_filter = 1
+offset_left = 128.0
+offset_top = 112.0
+offset_right = 2097.0
+offset_bottom = 1681.0
+scale = Vector2(0.575, 0.575)
+theme_override_colors/font_color = Color(1, 0, 0.15686275, 1)
+theme_override_fonts/font = ExtResource("2_t475i")
+theme_override_font_sizes/font_size = 128
+text = "Human must
+never know"
+horizontal_alignment = 1
+
+[node name="MenuUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Control" type="Control" parent="MenuUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="MenuUI/Control"]
+offset_left = 760.0
+offset_top = 510.0
+offset_right = 1200.0
+offset_bottom = 690.0
+theme_override_constants/separation = 14
+
+[node name="StartButton" type="Button" parent="MenuUI/Control/MenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(360, 72)
+theme_override_font_sizes/font_size = 36
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="MenuUI/Control/MenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(360, 72)
+theme_override_font_sizes/font_size = 36
+text = "Quit"
+
+[connection signal="pressed" from="MenuUI/Control/MenuButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuUI/Control/MenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]
