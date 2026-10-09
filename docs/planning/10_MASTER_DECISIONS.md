@@ -1,4 +1,4 @@
-﻿# Human Must Never Know - Master Decisions
+# Human Must Never Know - Master Decisions
 
 Status: authoritative numeric/rule table for the planning package. When a more detailed specification and a value here conflict, this table controls the value; the associated system specification controls the implementation meaning. Values marked **initial target** require the stated playtest gate, not design reinvention.
 
@@ -41,6 +41,7 @@ Status: authoritative numeric/rule table for the planning package. When a more d
 | D-35 | Source changes | Production work proceeds by roadmap session; existing dirty scenes/UIDs preserved and path-limited | Protect user's local work. | Locked |
 | D-36 | Fight presentation and controls | Energy opponent is named Exhaustion and uses an abstract shadow/energy silhouette; Bird Fight uses the colliding Bird; both share rules. `fight_scratch` maps to Z; `fight_brace` maps to X; buttons remain clickable. | One readable reusable Fight interface without a new enemy roster. | Locked |
 | D-37 | Primary controls | Keyboard and mouse; preserve A/D for left/right and Space for jump; add W for pipe climb, Z/X for Fight, Escape for pause; no touch controls in the initial scope | Reuse the current InputMap and give each mode consistent visible controls. | Locked |
+| D-38 | Canonical story premise | The cat lives with its human on the top floor of a 1000-floor plaza. The human leaves for work after telling the cat not to cause trouble. The cat secretly leaves, spends the day out, then notices sunset and realizes the human will soon return. With no safe route home, the cat climbs the plaza exterior and windows trying to reach home before the human and keep the disobedience secret. The 50 gameplay tiers are a production abstraction and do not redefine the 1000-floor fiction. | Locks the narrative motivation and meaning of the title without adding extra gameplay systems. | Locked |
 
 ## Playtest change control
 
