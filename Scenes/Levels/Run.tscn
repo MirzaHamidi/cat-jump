@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/RunController.gd" id="1_run_controller"]
 [ext_resource type="PackedScene" path="res://Scenes/Levels/ClimbLevel.tscn" id="2_climb_level"]
+[ext_resource type="Script" path="res://Scripts/RunState.gd" id="3_run_state"]
 
 [node name="Run" type="Node2D"]
 script = ExtResource("1_run_controller")
 
 [node name="RunState" type="Node" parent="."]
+script = ExtResource("3_run_state")
 
 [node name="World" type="Node2D" parent="."]
 
