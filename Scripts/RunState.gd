@@ -2,6 +2,7 @@ class_name RunState
 extends Node
 
 signal energy_changed(current_energy: int, maximum_energy: int)
+signal energy_depleted
 signal lives_changed(current_lives: int)
 signal floor_changed(current_floor: int, highest_floor: int)
 signal timer_changed(elapsed_seconds: float)
@@ -66,6 +67,16 @@ func set_floor_progress(landed_floor: int) -> void:
 
 func stop_timer() -> void:
 	timer_running = false
+
+func try_spend_energy(amount: int) -> bool:
+	if amount <= 0 or energy < amount:
+		return false
+
+	var previous_energy := energy
+	energy -= amount
+	if previous_energy > 0 and energy == 0:
+		energy_depleted.emit()
+	return true
 
 func _emit_energy_changed_if_needed() -> void:
 	if energy == _last_energy_value and max_energy == _last_energy_maximum:

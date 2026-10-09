@@ -13,6 +13,10 @@ extends CharacterBody2D
 @export var jump_buffer_time: float = 0.12
 @export_range(0.1, 1.0, 0.05) var jump_cut_multiplier: float = 0.45
 
+@export_category("Double Jump")
+@export var double_jump_velocity: float = -540.0
+@export_range(1, 999, 1) var double_jump_cost: int = 25
+
 @export_category("Gravity")
 @export var gravity: float = 1450.0
 @export var fall_gravity: float = 2300.0
@@ -20,6 +24,10 @@ extends CharacterBody2D
 
 var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
+var normal_jump_started: bool = false
+var double_jump_used: bool = false
+
+@onready var run_state: RunState = get_node_or_null("../../../RunState") as RunState
 
 
 func _physics_process(delta: float) -> void:
@@ -30,6 +38,9 @@ func _physics_process(delta: float) -> void:
 	_try_jump()
 	_apply_jump_cut()
 	move_and_slide()
+	if is_on_floor():
+		normal_jump_started = false
+		double_jump_used = false
 
 
 func _update_jump_timers(delta: float, was_on_floor: bool) -> void:
@@ -64,11 +75,26 @@ func _apply_gravity(delta: float) -> void:
 
 
 func _try_jump() -> void:
-	if jump_buffer_timer <= 0.0 or coyote_timer <= 0.0:
+	if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
+		velocity.y = jump_velocity
+		coyote_timer = 0.0
+		jump_buffer_timer = 0.0
+		normal_jump_started = true
+		double_jump_used = false
 		return
 
-	velocity.y = jump_velocity
-	coyote_timer = 0.0
+	if not Input.is_action_just_pressed("jump"):
+		return
+	if is_on_floor() or not normal_jump_started or double_jump_used:
+		return
+	if run_state == null:
+		return
+	if not run_state.try_spend_energy(double_jump_cost):
+		jump_buffer_timer = 0.0
+		return
+
+	velocity.y = double_jump_velocity
+	double_jump_used = true
 	jump_buffer_timer = 0.0
 
 
