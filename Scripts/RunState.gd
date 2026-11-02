@@ -6,6 +6,7 @@ signal energy_depleted
 signal lives_changed(current_lives: int)
 signal floor_changed(current_floor: int, highest_floor: int)
 signal timer_changed(elapsed_seconds: float)
+signal game_over
 
 @export_group("New Run Defaults")
 @export_range(0, 999, 1) var max_energy: int = 100
@@ -34,6 +35,7 @@ signal timer_changed(elapsed_seconds: float)
 @export var timer_running: bool = false
 
 var _resetting_run: bool = false
+var _game_over_emitted := false
 var _last_energy_value: int = -1
 var _last_energy_maximum: int = -1
 var _last_lives_value: int = -1
@@ -46,6 +48,7 @@ func _process(delta: float) -> void:
 		elapsed_seconds += maxf(delta, 0.0)
 
 func reset_run() -> void:
+	_game_over_emitted = false
 	energy = clampi(starting_energy, 0, maxi(max_energy, 0))
 	lives = maxi(starting_lives, 0)
 	current_floor = 1
@@ -67,6 +70,14 @@ func set_floor_progress(landed_floor: int) -> void:
 
 func stop_timer() -> void:
 	timer_running = false
+
+func lose_life() -> int:
+	var previous_lives := lives
+	lives = maxi(lives - 1, 0)
+	if previous_lives > 0 and lives == 0 and not _game_over_emitted:
+		_game_over_emitted = true
+		game_over.emit()
+	return lives
 
 func try_spend_energy(amount: int) -> bool:
 	if amount <= 0 or energy < amount:

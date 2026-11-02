@@ -1,3 +1,4 @@
+class_name ClimbingCamera
 extends Camera2D
 
 @export var target: Node2D
@@ -14,6 +15,13 @@ func _ready() -> void:
 		push_warning("ClimbingCamera needs a target.")
 		return
 
+	global_position = target.global_position + Vector2(0.0, vertical_offset)
+	highest_camera_y = global_position.y
+
+
+func snap_to_target() -> void:
+	if target == null:
+		return
 	global_position = target.global_position + Vector2(0.0, vertical_offset)
 	highest_camera_y = global_position.y
 

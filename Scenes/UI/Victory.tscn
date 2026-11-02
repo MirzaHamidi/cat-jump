@@ -1,0 +1,94 @@
+[gd_scene format=3 load_steps=3]
+
+[ext_resource type="Script" path="res://Scripts/Victory.gd" id="1_victory"]
+
+[ext_resource type="Theme" path="res://Assets/UI/GrayboxTheme.tres" id="graybox_theme"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_victory")
+theme = ExtResource("graybox_theme")
+
+[node name="Dimmer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.2, 0.2, 0.2, 0.36)
+
+[node name="VictoryPanel" type="Panel" parent="."]
+offset_left = 420.0
+offset_top = 152.0
+offset_right = 860.0
+offset_bottom = 568.0
+
+[node name="TitleLabel" type="Label" parent="VictoryPanel"]
+offset_left = 32.0
+offset_top = 26.0
+offset_right = 408.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1.0)
+theme_override_font_sizes/font_size = 32
+text = "VICTORY"
+horizontal_alignment = 0
+vertical_alignment = 1
+
+[node name="ResultLabel" type="Label" parent="VictoryPanel"]
+offset_left = 32.0
+offset_top = 79.0
+offset_right = 408.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 15
+text = "RUN COMPLETE"
+horizontal_alignment = 0
+vertical_alignment = 1
+
+[node name="FinalTimeLabel" type="Label" parent="VictoryPanel"]
+offset_left = 32.0
+offset_top = 142.0
+offset_right = 408.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1.0)
+theme_override_font_sizes/font_size = 19
+text = "FINAL TIME  00:00.0"
+horizontal_alignment = 0
+vertical_alignment = 1
+
+[node name="HighestFloorLabel" type="Label" parent="VictoryPanel"]
+offset_left = 32.0
+offset_top = 178.0
+offset_right = 408.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1.0)
+theme_override_font_sizes/font_size = 17
+text = "HIGHEST FLOOR  050"
+horizontal_alignment = 0
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="VictoryPanel"]
+offset_left = 32.0
+offset_top = 260.0
+offset_right = 408.0
+offset_bottom = 312.0
+theme_override_font_sizes/font_size = 18
+text = "Retry Run"
+focus_mode = 2
+theme_type_variation = &"PrimaryButton"
+
+[node name="TitleButton" type="Button" parent="VictoryPanel"]
+offset_left = 32.0
+offset_top = 328.0
+offset_right = 408.0
+offset_bottom = 380.0
+theme_override_font_sizes/font_size = 18
+text = "Return to Title"
+focus_mode = 2

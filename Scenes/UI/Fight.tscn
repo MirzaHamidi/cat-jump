@@ -1,0 +1,392 @@
+[gd_scene format=3 load_steps=5]
+
+[ext_resource type="Script" path="res://Scripts/FightController.gd" id="1_controller"]
+[ext_resource type="AudioStream" path="res://Audio/Songs/cat_song2.mp3" id="2_fight_music"]
+
+[ext_resource type="Theme" path="res://Assets/UI/GrayboxTheme.tres" id="graybox_theme"]
+
+[ext_resource type="SpriteFrames" path="res://Animations/OrangeCat.tres" id="orange_cat"]
+
+[node name="Fight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_controller")
+theme = ExtResource("graybox_theme")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.933333, 0.933333, 0.933333, 1.0)
+
+[node name="TopPanel" type="ColorRect" parent="."]
+offset_left = 96.0
+offset_top = 89.0
+offset_right = 1184.0
+offset_bottom = 91.0
+color = Color(0.6, 0.6, 0.6, 1.0)
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 36.0
+offset_right = 360.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1.0)
+theme_override_font_sizes/font_size = 20
+text = "FIGHT"
+vertical_alignment = 1
+
+[node name="OpponentNameLabel" type="Label" parent="."]
+offset_left = 724.0
+offset_top = 214.0
+offset_right = 1076.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1.0)
+theme_override_font_sizes/font_size = 25
+text = "EXHAUSTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TurnLabel" type="Label" parent="."]
+offset_left = 1012.0
+offset_top = 36.0
+offset_right = 1184.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 17
+text = "TURN 01"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="OpponentPanel" type="ColorRect" parent="."]
+offset_left = 724.0
+offset_top = 254.0
+offset_right = 1076.0
+offset_bottom = 422.0
+color = Color(0.839216, 0.839216, 0.839216, 1.0)
+mouse_filter = 2
+
+[node name="IntentLabel" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 110.0
+offset_right = 640.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.643137, 0.317647, 0.262745, 1)
+theme_override_font_sizes/font_size = 24
+text = "STRIKE"
+horizontal_alignment = 0
+vertical_alignment = 1
+
+[node name="IntentHintLabel" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 150.0
+offset_right = 1184.0
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 17
+text = "Incoming Strike. Hiss blocks it; surviving Claw costs 1 Fight HP."
+horizontal_alignment = 0
+
+[node name="EnergySilhouette" type="Node2D" parent="."]
+position = Vector2(900, 356)
+scale = Vector2(1.1, 1.1)
+
+[node name="Shadow" type="Polygon2D" parent="EnergySilhouette"]
+visible = true
+polygon = PackedVector2Array(-58, 54, -48, 9, -35, -29, -10, -53, 18, -48, 43, -26, 58, 10, 51, 44, 22, 57, -22, 58)
+color = Color(0.388235, 0.321569, 0.54902, 1)
+
+[node name="Core" type="Polygon2D" parent="EnergySilhouette"]
+visible = true
+polygon = PackedVector2Array(-14, 23, -5, -22, 12, -32, 22, -2, 9, 28)
+color = Color(0.8, 0.666667, 1, 1)
+
+[node name="BirdSilhouette" type="Node2D" parent="."]
+visible = false
+position = Vector2(900, 390)
+scale = Vector2(-1.4, 1.4)
+
+[node name="Body" type="Polygon2D" parent="BirdSilhouette"]
+visible = true
+polygon = PackedVector2Array(-62, 1, -34, -18, 7, -15, 32, -5, 51, 1, 34, 12, 1, 20, -35, 18)
+color = Color(0.831373, 0.733333, 0.529412, 1)
+
+[node name="Wing" type="Polygon2D" parent="BirdSilhouette"]
+visible = true
+polygon = PackedVector2Array(-9, -12, 8, -48, 41, -47, 14, -14, 6, 13)
+color = Color(0.584314, 0.482353, 0.345098, 1)
+
+[node name="Tail" type="Polygon2D" parent="BirdSilhouette"]
+visible = true
+polygon = PackedVector2Array(-48, 1, -78, -14, -64, 8, -78, 22, -37, 16)
+color = Color(0.584314, 0.482353, 0.345098, 1)
+
+[node name="Beak" type="Polygon2D" parent="BirdSilhouette"]
+visible = true
+polygon = PackedVector2Array(45, -6, 68, 1, 45, 8)
+color = Color(0.956863, 0.627451, 0.360784, 1)
+
+[node name="Eye" type="Polygon2D" parent="BirdSilhouette"]
+visible = true
+polygon = PackedVector2Array(30, -10, 35, -10, 35, -5, 30, -5)
+color = Color(0.0705882, 0.0745098, 0.113725, 1)
+
+[node name="OpponentHPPrompt" type="Label" parent="."]
+offset_left = 740.0
+offset_top = 434.0
+offset_right = 886.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 14
+text = "OPPONENT HP"
+vertical_alignment = 1
+
+[node name="OpponentHPPips" type="HBoxContainer" parent="."]
+offset_left = 900.0
+offset_top = 441.0
+offset_right = 1045.0
+offset_bottom = 449.0
+theme_override_constants/separation = 5
+
+[node name="OpponentPip1" type="ColorRect" parent="OpponentHPPips"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1.0)
+
+[node name="OpponentPip2" type="ColorRect" parent="OpponentHPPips"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1.0)
+
+[node name="OpponentPip3" type="ColorRect" parent="OpponentHPPips"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1.0)
+
+[node name="OpponentPip4" type="ColorRect" parent="OpponentHPPips"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1.0)
+
+[node name="OpponentPip5" type="ColorRect" parent="OpponentHPPips"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1.0)
+
+[node name="OpponentPip6" type="ColorRect" parent="OpponentHPPips"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1.0)
+
+[node name="PlayerHPPrompt" type="Label" parent="."]
+offset_left = 224.0
+offset_top = 434.0
+offset_right = 332.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 14
+text = "FIGHT HP"
+vertical_alignment = 1
+
+[node name="PlayerHPPips" type="HBoxContainer" parent="."]
+offset_left = 344.0
+offset_top = 441.0
+offset_right = 414.0
+offset_bottom = 449.0
+theme_override_constants/separation = 5
+
+[node name="PlayerPip1" type="ColorRect" parent="PlayerHPPips"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1.0)
+
+[node name="PlayerPip2" type="ColorRect" parent="PlayerHPPips"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1.0)
+
+[node name="PlayerPip3" type="ColorRect" parent="PlayerHPPips"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1.0)
+
+[node name="FightStatusLabel" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 470.0
+offset_right = 1120.0
+offset_bottom = 496.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 16
+text = "HISSES 3/3     RESOLVE 0/2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FeedbackLabel" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 503.0
+offset_right = 1184.0
+offset_bottom = 531.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1.0)
+theme_override_font_sizes/font_size = 17
+text = "Choose an action."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetreatCostLabel" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 540.0
+offset_right = 1184.0
+offset_bottom = 562.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 14
+text = "RETREAT COST — Energy becomes 50; drop 5 floors; lose no Life."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HissHintLabel" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 644.0
+offset_right = 344.0
+offset_bottom = 691.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 13
+text = "STRIKE · block the hit · +1 Resolve"
+autowrap_mode = 3
+horizontal_alignment = 1
+
+[node name="ClawHintLabel" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 644.0
+offset_right = 624.0
+offset_bottom = 691.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 13
+text = "ANY TURN · opponent -1 HP · Strike can cost 1 HP"
+autowrap_mode = 3
+horizontal_alignment = 1
+
+[node name="RunAwayHintLabel" type="Label" parent="."]
+offset_left = 656.0
+offset_top = 644.0
+offset_right = 904.0
+offset_bottom = 691.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 13
+text = "RECOVER + Resolve 1+"
+autowrap_mode = 3
+horizontal_alignment = 1
+
+[node name="MercyHintLabel" type="Label" parent="."]
+offset_left = 936.0
+offset_top = 644.0
+offset_right = 1184.0
+offset_bottom = 691.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 13
+text = "RECOVER + Resolve 2 + foe <=2 HP; prior damage remains"
+autowrap_mode = 3
+horizontal_alignment = 1
+
+[node name="HissButton" type="Button" parent="."]
+offset_left = 96.0
+offset_top = 582.0
+offset_right = 344.0
+offset_bottom = 634.0
+focus_mode = 2
+custom_minimum_size = Vector2(248, 52)
+theme_override_font_sizes/font_size = 18
+text = "HISS"
+
+[node name="ClawButton" type="Button" parent="."]
+offset_left = 376.0
+offset_top = 582.0
+offset_right = 624.0
+offset_bottom = 634.0
+focus_mode = 2
+custom_minimum_size = Vector2(248, 52)
+theme_override_font_sizes/font_size = 18
+text = "CLAW"
+
+[node name="RunAwayButton" type="Button" parent="."]
+offset_left = 656.0
+offset_top = 582.0
+offset_right = 904.0
+offset_bottom = 634.0
+focus_mode = 2
+custom_minimum_size = Vector2(248, 52)
+theme_override_font_sizes/font_size = 18
+text = "RUN AWAY"
+
+[node name="MercyButton" type="Button" parent="."]
+offset_left = 936.0
+offset_top = 582.0
+offset_right = 1184.0
+offset_bottom = 634.0
+focus_mode = 2
+custom_minimum_size = Vector2(248, 52)
+theme_override_font_sizes/font_size = 18
+text = "MERCY"
+
+[node name="InputHelpLabel" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 695.0
+offset_right = 1184.0
+offset_bottom = 718.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1.0)
+theme_override_font_sizes/font_size = 13
+text = "A/D select · Enter / Space / Controller confirm · Mouse · Escape pause"
+horizontal_alignment = 1
+
+[node name="OutcomeLabel" type="Label" parent="."]
+visible = false
+offset_left = 480.0
+offset_top = 310.0
+offset_right = 800.0
+offset_bottom = 354.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1.0)
+theme_override_font_sizes/font_size = 30
+text = "VICTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OutcomePause" type="Timer" parent="."]
+one_shot = true
+
+[node name="ActionPacing" type="Timer" parent="."]
+one_shot = true
+
+[node name="FightMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fight_music")
+volume_db = -16.0
+
+[node name="Cat" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(352, 420)
+scale = Vector2(1.7, 1.7)
+sprite_frames = ExtResource("orange_cat")
+animation = &"idle_east"
+autoplay = "idle_east"
+centered = false
+offset = Vector2(-50, -81)
+
+[node name="GroundLine" type="ColorRect" parent="."]
+offset_left = 160.0
+offset_top = 420.0
+offset_right = 1120.0
+offset_bottom = 422.0
+mouse_filter = 2
+color = Color(0.6, 0.6, 0.6, 1.0)
+
+[connection signal="pressed" from="HissButton" to="." method="_on_hiss_button_pressed"]
+[connection signal="pressed" from="ClawButton" to="." method="_on_claw_button_pressed"]
+[connection signal="pressed" from="RunAwayButton" to="." method="_on_run_away_button_pressed"]
+[connection signal="pressed" from="MercyButton" to="." method="_on_mercy_button_pressed"]
+[connection signal="timeout" from="OutcomePause" to="." method="_on_outcome_pause_timeout"]

@@ -11,6 +11,10 @@ size = Vector2(240, 16)
 color = Color(0.19, 0.16, 0.2, 1)
 polygon = PackedVector2Array(-95, -48, 95, -48, 95, 39, -95, 39)
 
+[node name="Lintel" type="Polygon2D" parent="Visual"]
+color = Color(0.73, 0.75, 0.76, 1)
+polygon = PackedVector2Array(-102, -48, 102, -48, 104, -43, -104, -43)
+
 [node name="Frame" type="Polygon2D" parent="Visual"]
 color = Color(0.73, 0.75, 0.76, 1)
 polygon = PackedVector2Array(-89, -43, 89, -43, 89, 36, -89, 36)
@@ -30,6 +34,32 @@ polygon = PackedVector2Array(-4, -32, 4, -32, 4, 29, -4, 29)
 [node name="Sill" type="Polygon2D" parent="Visual"]
 color = Color(0.9, 0.82, 0.65, 1)
 polygon = PackedVector2Array(-120, 34, 120, 34, 120, 50, -120, 50)
+
+[node name="SillTop" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.933333, 0.92549, 0.890196, 1)
+polygon = PackedVector2Array(-120, 34, 120, 34, 120, 37, -120, 37)
+
+[node name="SillLowerEdge" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.431373, 0.466667, 0.454902, 1)
+polygon = PackedVector2Array(-120, 47, 120, 47, 120, 50, -120, 50)
+
+[node name="SillContactShadow" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.188235, 0.227451, 0.211765, 0.18)
+polygon = PackedVector2Array(-116, 50, 116, 50, 116, 54, -116, 54)
+
+[node name="FrameInset" type="Line2D" parent="Visual"]
+visible = false
+points = PackedVector2Array(-77, 26, -77, -32, 77, -32, 77, 26)
+width = 2.0
+default_color = Color(0.658824, 0.686275, 0.662745, 1)
+
+[node name="WindowLatch" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.658824, 0.686275, 0.662745, 1)
+polygon = PackedVector2Array(8, 3, 12, 3, 12, 12, 8, 12)
 
 [node name="LedgeCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 42)

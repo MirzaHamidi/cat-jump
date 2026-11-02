@@ -54,6 +54,33 @@ polygon = PackedVector2Array(-104, -48, 104, -48, 104, -40, -104, -40)
 color = Color(0.19, 0.23, 0.28, 1)
 polygon = PackedVector2Array(-100, -18, 100, -18, 100, -12, -100, -12)
 
+[node name="DeckTop" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.933333, 0.92549, 0.890196, 1)
+polygon = PackedVector2Array(-105, 16, 105, 16, 105, 18, -105, 18)
+
+[node name="DeckLowerEdge" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.431373, 0.466667, 0.454902, 1)
+polygon = PackedVector2Array(-105, 28, 105, 28, 105, 30, -105, 30)
+
+[node name="DeckContactShadow" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.188235, 0.227451, 0.211765, 0.18)
+polygon = PackedVector2Array(-105, 30, 105, 30, 105, 34, -105, 34)
+
+[node name="BraceLeft" type="Line2D" parent="Visual"]
+visible = false
+points = PackedVector2Array(-89, 31, -66, 54)
+width = 3.0
+default_color = Color(0.431373, 0.466667, 0.454902, 1)
+
+[node name="BraceRight" type="Line2D" parent="Visual"]
+visible = false
+points = PackedVector2Array(89, 31, 66, 54)
+width = 3.0
+default_color = Color(0.431373, 0.466667, 0.454902, 1)
+
 [node name="StandCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 23)
 one_way_collision = true

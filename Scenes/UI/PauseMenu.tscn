@@ -1,0 +1,72 @@
+[gd_scene format=3 load_steps=3]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_pause_menu"]
+
+[ext_resource type="Theme" path="res://Assets/UI/GrayboxTheme.tres" id="graybox_theme"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pause_menu")
+theme = ExtResource("graybox_theme")
+
+[node name="Dimmer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.2, 0.2, 0.2, 0.36)
+
+[node name="PausePanel" type="Panel" parent="."]
+offset_left = 440.0
+offset_top = 184.0
+offset_right = 840.0
+offset_bottom = 536.0
+
+[node name="TitleLabel" type="Label" parent="PausePanel"]
+offset_left = 32.0
+offset_top = 26.0
+offset_right = 368.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1.0)
+theme_override_font_sizes/font_size = 30
+text = "PAUSED"
+horizontal_alignment = 0
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PausePanel"]
+offset_left = 32.0
+offset_top = 108.0
+offset_right = 368.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 18
+text = "Resume"
+focus_mode = 2
+theme_type_variation = &"PrimaryButton"
+
+[node name="RestartButton" type="Button" parent="PausePanel"]
+offset_left = 32.0
+offset_top = 176.0
+offset_right = 368.0
+offset_bottom = 228.0
+theme_override_font_sizes/font_size = 18
+text = "Restart Run"
+focus_mode = 2
+
+[node name="TitleButton" type="Button" parent="PausePanel"]
+offset_left = 32.0
+offset_top = 244.0
+offset_right = 368.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 18
+text = "Return to Title"
+focus_mode = 2

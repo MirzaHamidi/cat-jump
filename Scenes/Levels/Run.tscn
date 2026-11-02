@@ -3,9 +3,16 @@
 [ext_resource type="Script" path="res://Scripts/RunController.gd" id="1_run_controller"]
 [ext_resource type="PackedScene" path="res://Scenes/Levels/ClimbLevel.tscn" id="2_climb_level"]
 [ext_resource type="Script" path="res://Scripts/RunState.gd" id="3_run_state"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/HUD.tscn" id="4_hud"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/PauseMenu.tscn" id="5_pause_menu"]
+[ext_resource type="AudioStream" path="res://Audio/Songs/cat_song1.mp3" id="6_climb_music"]
 
 [node name="Run" type="Node2D"]
 script = ExtResource("1_run_controller")
+
+[node name="RunMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_climb_music")
+volume_db = -14.0
 
 [node name="RunState" type="Node" parent="."]
 script = ExtResource("3_run_state")
@@ -16,12 +23,8 @@ script = ExtResource("3_run_state")
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="HUDLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HUD" parent="HUDLayer" instance=ExtResource("4_hud")]
+run_state_path = NodePath("../../RunState")
 
 [node name="FightLayer" type="CanvasLayer" parent="."]
 
@@ -43,9 +46,8 @@ grow_vertical = 2
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 
-[node name="Pause" type="Control" parent="PauseLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Pause" parent="PauseLayer" instance=ExtResource("5_pause_menu")]
+run_controller_path = NodePath("../..")
+hud_path = NodePath("../../HUDLayer/HUD")
+
+[connection signal="pause_requested" from="HUDLayer/HUD" to="PauseLayer/Pause" method="open_pause_menu"]

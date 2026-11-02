@@ -9,7 +9,7 @@ size = Vector2(200, 16)
 
 [node name="BackWall" type="Polygon2D" parent="Visual"]
 color = Color(0.27, 0.2, 0.18, 1)
-polygon = PackedVector2Array(-110, -94, 110, -94, 110, 28, -110, 28)
+polygon = PackedVector2Array(-110, -30, 110, -30, 110, 28, -110, 28)
 
 [node name="Floor" type="Polygon2D" parent="Visual"]
 color = Color(0.45, 0.32, 0.24, 1)
@@ -32,6 +32,31 @@ polygon = PackedVector2Array(-101, -25, 101, -25, 101, -17, -101, -17)
 [node name="MidRail" type="Polygon2D" parent="Visual/Railing"]
 color = Color(0.23, 0.27, 0.29, 1)
 polygon = PackedVector2Array(-97, 4, 97, 4, 97, 10, -97, 10)
+
+[node name="BalusterLeft" type="Polygon2D" parent="Visual/Railing"]
+visible = false
+color = Color(0.431373, 0.466667, 0.454902, 1)
+polygon = PackedVector2Array(-52, -19, -48, -19, -48, 28, -52, 28)
+
+[node name="BalusterRight" type="Polygon2D" parent="Visual/Railing"]
+visible = false
+color = Color(0.431373, 0.466667, 0.454902, 1)
+polygon = PackedVector2Array(48, -19, 52, -19, 52, 28, 48, 28)
+
+[node name="SlabTop" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.933333, 0.92549, 0.890196, 1)
+polygon = PackedVector2Array(-100, 28, 100, 28, 100, 31, -100, 31)
+
+[node name="SlabLowerEdge" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.431373, 0.466667, 0.454902, 1)
+polygon = PackedVector2Array(-100, 41, 100, 41, 100, 44, -100, 44)
+
+[node name="SlabContactShadow" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.188235, 0.227451, 0.211765, 0.18)
+polygon = PackedVector2Array(-100, 44, 100, 44, 100, 49, -100, 49)
 
 [node name="StandCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 36)

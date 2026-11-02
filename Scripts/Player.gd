@@ -1,4 +1,7 @@
+class_name Player
 extends CharacterBody2D
+
+signal landed_on_surface(collider: Object)
 
 @export_category("Horizontal Movement")
 @export var move_speed: float = 340.0
@@ -26,11 +29,17 @@ var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
 var normal_jump_started: bool = false
 var double_jump_used: bool = false
+var active_pipe: Node2D
+var _nearby_pipes: Array[Node2D] = []
+var _pipe_regrab_blocked: bool = false
 
 @onready var run_state: RunState = get_node_or_null("../../../RunState") as RunState
 
 
 func _physics_process(delta: float) -> void:
+	if _process_pipe_interaction(delta):
+		return
+
 	var was_on_floor := is_on_floor()
 	_update_jump_timers(delta, was_on_floor)
 	_apply_horizontal_movement(delta, was_on_floor)
@@ -38,9 +47,95 @@ func _physics_process(delta: float) -> void:
 	_try_jump()
 	_apply_jump_cut()
 	move_and_slide()
+	if not was_on_floor and is_on_floor():
+		_emit_landing_surface()
 	if is_on_floor():
 		normal_jump_started = false
 		double_jump_used = false
+
+
+func enter_pipe(pipe: Node2D) -> void:
+	if pipe == null:
+		return
+	if not _nearby_pipes.has(pipe):
+		_nearby_pipes.append(pipe)
+	if not is_zero_approx(Input.get_axis("move_left", "move_right")) or _pipe_regrab_blocked:
+		return
+	_attach_pipe(pipe)
+
+
+func _attach_pipe(pipe: Node2D) -> void:
+	active_pipe = pipe
+	velocity = Vector2.ZERO
+	coyote_timer = 0.0
+	jump_buffer_timer = 0.0
+
+
+func exit_pipe(pipe: Node2D) -> void:
+	_nearby_pipes.erase(pipe)
+	if active_pipe == pipe:
+		active_pipe = _latest_nearby_pipe()
+
+
+func clear_pipe_state() -> void:
+	active_pipe = null
+	_nearby_pipes.clear()
+	_pipe_regrab_blocked = false
+
+
+func _process_pipe_interaction(delta: float) -> bool:
+	if not Input.is_action_pressed("move_up"):
+		_pipe_regrab_blocked = false
+	if active_pipe == null and not _pipe_regrab_blocked and Input.is_action_pressed("move_up") and is_zero_approx(Input.get_axis("move_left", "move_right")):
+		var nearby_pipe := _latest_nearby_pipe()
+		if nearby_pipe != null:
+			_attach_pipe(nearby_pipe)
+	if active_pipe == null:
+		return false
+	if not is_instance_valid(active_pipe):
+		active_pipe = _latest_nearby_pipe()
+		if active_pipe == null:
+			return false
+
+	if Input.is_action_just_pressed("jump"):
+		active_pipe = null
+		_pipe_regrab_blocked = true
+		coyote_timer = 0.0
+		jump_buffer_timer = 0.0
+		normal_jump_started = true
+		velocity.y = jump_velocity
+		_apply_horizontal_movement(delta, false)
+		_apply_gravity(delta)
+		_apply_jump_cut()
+		move_and_slide()
+		return true
+
+	if not is_zero_approx(Input.get_axis("move_left", "move_right")):
+		active_pipe = null
+		return false
+
+	velocity = Vector2.ZERO
+	if Input.is_action_pressed("move_up"):
+		velocity.y = -maxf(float(active_pipe.get("climb_speed")), 0.0)
+	move_and_slide()
+	return true
+
+
+func _latest_nearby_pipe() -> Node2D:
+	for index in range(_nearby_pipes.size() - 1, -1, -1):
+		var pipe := _nearby_pipes[index]
+		if is_instance_valid(pipe):
+			return pipe
+		_nearby_pipes.remove_at(index)
+	return null
+
+
+func _emit_landing_surface() -> void:
+	for index in range(get_slide_collision_count()):
+		var collision := get_slide_collision(index)
+		if collision.get_normal().dot(Vector2.UP) > 0.7:
+			landed_on_surface.emit(collision.get_collider())
+			return
 
 
 func _update_jump_timers(delta: float, was_on_floor: bool) -> void:

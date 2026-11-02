@@ -7,6 +7,21 @@ size = Vector2(144, 14)
 
 [node name="Visual" type="Node2D" parent="."]
 
+[node name="ContactShadow" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.188235, 0.227451, 0.211765, 0.18)
+polygon = PackedVector2Array(-62, 26, 69, 26, 69, 87, -62, 87)
+
+[node name="MountingBracketLeft" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.431373, 0.466667, 0.454902, 1)
+polygon = PackedVector2Array(-54, 76, -46, 76, -46, 94, -62, 94, -62, 89, -54, 89)
+
+[node name="MountingBracketRight" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.431373, 0.466667, 0.454902, 1)
+polygon = PackedVector2Array(46, 76, 54, 76, 54, 89, 62, 89, 62, 94, 46, 94)
+
 [node name="Case" type="Polygon2D" parent="Visual"]
 color = Color(0.54, 0.61, 0.66, 1)
 polygon = PackedVector2Array(-64, 22, 64, 22, 64, 82, -64, 82)
@@ -53,6 +68,23 @@ default_color = Color(0.28, 0.36, 0.42, 1)
 points = PackedVector2Array(40, 40, 40, 66)
 width = 3.0
 default_color = Color(0.28, 0.36, 0.42, 1)
+
+[node name="CaseEdge" type="Line2D" parent="Visual"]
+visible = false
+points = PackedVector2Array(-64, 24, -64, 82, 64, 82, 64, 24)
+width = 2.0
+default_color = Color(0.431373, 0.466667, 0.454902, 1)
+
+[node name="TopEdge" type="Line2D" parent="Visual"]
+visible = false
+points = PackedVector2Array(-72, 7, 72, 7)
+width = 2.0
+default_color = Color(0.933333, 0.92549, 0.890196, 1)
+
+[node name="ServiceTab" type="Polygon2D" parent="Visual"]
+visible = false
+color = Color(0.772549, 0.784314, 0.752941, 1)
+polygon = PackedVector2Array(47, 33, 53, 33, 53, 36, 47, 36)
 
 [node name="StandCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
