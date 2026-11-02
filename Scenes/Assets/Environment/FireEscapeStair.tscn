@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/source.png" id="pixel_kit"]
 
 [sub_resource type="CapsuleShape2D" id="StairInteractionShape"]
 radius = 34.0
@@ -12,36 +14,43 @@ size = Vector2(30, 6)
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="LeftRail" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-10, -46, -10, 46)
 width = 4.0
 default_color = Color(0.23, 0.28, 0.32, 1)
 
 [node name="RightRail" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(10, -46, 10, 46)
 width = 4.0
 default_color = Color(0.23, 0.28, 0.32, 1)
 
 [node name="Rung_01" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-13, -46, 13, -46)
 width = 4.0
 default_color = Color(0.47, 0.53, 0.58, 1)
 
 [node name="Rung_02" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-13, -23, 13, -23)
 width = 4.0
 default_color = Color(0.47, 0.53, 0.58, 1)
 
 [node name="Rung_03" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-13, 0, 13, 0)
 width = 4.0
 default_color = Color(0.47, 0.53, 0.58, 1)
 
 [node name="Rung_04" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-13, 23, 13, 23)
 width = 4.0
 default_color = Color(0.47, 0.53, 0.58, 1)
 
 [node name="Rung_05" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-13, 46, 13, 46)
 width = 4.0
 default_color = Color(0.47, 0.53, 0.58, 1)
@@ -75,6 +84,15 @@ visible = false
 points = PackedVector2Array(-15, 44, 15, 44)
 width = 2.0
 default_color = Color(0.933333, 0.92549, 0.890196, 1)
+
+[node name="LadderArt" type="Sprite2D" parent="Visual"]
+texture_filter = 1
+position = Vector2(-15, -49.3)
+scale = Vector2(0.7142857, 0.7142857)
+texture = ExtResource("pixel_kit")
+centered = false
+region_enabled = true
+region_rect = Rect2(519, 192, 42, 138)
 
 [node name="StairInteractionArea" type="Area2D" parent="."]
 collision_layer = 2

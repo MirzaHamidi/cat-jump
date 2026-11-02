@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/source.png" id="pixel_kit"]
 
 [sub_resource type="RectangleShape2D" id="StandShape"]
 size = Vector2(210, 14)
@@ -8,35 +10,42 @@ size = Vector2(210, 14)
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="Deck" type="Polygon2D" parent="Visual"]
+visible = false
 color = Color(0.3, 0.34, 0.38, 1)
 polygon = PackedVector2Array(-105, 16, 105, 16, 105, 30, -105, 30)
 
 [node name="GrateLine_01" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-85, 19, -85, 27)
 width = 2.0
 default_color = Color(0.18, 0.22, 0.26, 1)
 
 [node name="GrateLine_02" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-45, 19, -45, 27)
 width = 2.0
 default_color = Color(0.18, 0.22, 0.26, 1)
 
 [node name="GrateLine_03" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-5, 19, -5, 27)
 width = 2.0
 default_color = Color(0.18, 0.22, 0.26, 1)
 
 [node name="GrateLine_04" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(35, 19, 35, 27)
 width = 2.0
 default_color = Color(0.18, 0.22, 0.26, 1)
 
 [node name="GrateLine_05" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(75, 19, 75, 27)
 width = 2.0
 default_color = Color(0.18, 0.22, 0.26, 1)
 
 [node name="Railing" type="Node2D" parent="Visual"]
+visible = false
 
 [node name="LeftPost" type="Polygon2D" parent="Visual/Railing"]
 color = Color(0.19, 0.23, 0.28, 1)
@@ -80,6 +89,15 @@ visible = false
 points = PackedVector2Array(89, 31, 66, 54)
 width = 3.0
 default_color = Color(0.431373, 0.466667, 0.454902, 1)
+
+[node name="EscapeArt" type="Sprite2D" parent="Visual"]
+texture_filter = 1
+position = Vector2(-100, -30)
+scale = Vector2(2, 2)
+texture = ExtResource("pixel_kit")
+centered = false
+region_enabled = true
+region_rect = Rect2(335, 271, 100, 36)
 
 [node name="StandCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 23)

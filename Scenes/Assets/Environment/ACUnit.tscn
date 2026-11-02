@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/source.png" id="pixel_kit"]
 
 [sub_resource type="RectangleShape2D" id="StandShape"]
 size = Vector2(144, 14)
@@ -23,48 +25,58 @@ color = Color(0.431373, 0.466667, 0.454902, 1)
 polygon = PackedVector2Array(46, 76, 54, 76, 54, 89, 62, 89, 62, 94, 46, 94)
 
 [node name="Case" type="Polygon2D" parent="Visual"]
+visible = false
 color = Color(0.54, 0.61, 0.66, 1)
 polygon = PackedVector2Array(-64, 22, 64, 22, 64, 82, -64, 82)
 
 [node name="TopSurface" type="Polygon2D" parent="Visual"]
+visible = false
 color = Color(0.72, 0.78, 0.81, 1)
 polygon = PackedVector2Array(-72, 6, 72, 6, 64, 24, -64, 24)
 
 [node name="FrontPanel" type="Polygon2D" parent="Visual"]
+visible = false
 color = Color(0.45, 0.53, 0.59, 1)
 polygon = PackedVector2Array(-56, 32, 56, 32, 56, 72, -56, 72)
 
 [node name="Vent_01" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-44, 40, -44, 66)
 width = 3.0
 default_color = Color(0.28, 0.36, 0.42, 1)
 
 [node name="Vent_02" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-30, 40, -30, 66)
 width = 3.0
 default_color = Color(0.28, 0.36, 0.42, 1)
 
 [node name="Vent_03" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-16, 40, -16, 66)
 width = 3.0
 default_color = Color(0.28, 0.36, 0.42, 1)
 
 [node name="Vent_04" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(-2, 40, -2, 66)
 width = 3.0
 default_color = Color(0.28, 0.36, 0.42, 1)
 
 [node name="Vent_05" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(12, 40, 12, 66)
 width = 3.0
 default_color = Color(0.28, 0.36, 0.42, 1)
 
 [node name="Vent_06" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(26, 40, 26, 66)
 width = 3.0
 default_color = Color(0.28, 0.36, 0.42, 1)
 
 [node name="Vent_07" type="Line2D" parent="Visual"]
+visible = false
 points = PackedVector2Array(40, 40, 40, 66)
 width = 3.0
 default_color = Color(0.28, 0.36, 0.42, 1)
@@ -85,6 +97,15 @@ default_color = Color(0.933333, 0.92549, 0.890196, 1)
 visible = false
 color = Color(0.772549, 0.784314, 0.752941, 1)
 polygon = PackedVector2Array(47, 33, 53, 33, 53, 36, 47, 36)
+
+[node name="AirConditionerArt" type="Sprite2D" parent="Visual"]
+texture_filter = 1
+position = Vector2(-60, 6)
+scale = Vector2(3, 3)
+texture = ExtResource("pixel_kit")
+centered = false
+region_enabled = true
+region_rect = Rect2(688, 115, 40, 29)
 
 [node name="StandCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)

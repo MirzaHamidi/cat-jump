@@ -1,28 +1,41 @@
-[gd_scene format=3]
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/source.png" id="pixel_kit"]
+[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/brick_red_tile.png" id="brick_tile"]
+[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/pavement_tile.png" id="pavement_tile"]
 
 [node name="ApartmentFacade" type="Node2D"]
 
 [node name="DistantBackdrop" type="Polygon2D" parent="."]
-visible = true
+visible = false
 polygon = PackedVector2Array(-720, -5200, 2000, -5200, 2000, 980, -720, 980)
 color = Color(0.31, 0.4, 0.46, 1)
 
+[node name="Sky" type="Polygon2D" parent="."]
+color = Color(0.52, 0.7, 0.85, 1)
+polygon = PackedVector2Array(-720, -5200, 2000, -5200, 2000, 980, -720, 980)
+
+[node name="DistantCity" type="Polygon2D" parent="."]
+color = Color(0.62, 0.71, 0.8, 1)
+polygon = PackedVector2Array(-720, 980, -720, -4595, -590, -4595, -590, -4490, -480, -4490, -480, -4550, -330, -4550, -330, -4460, -180, -4460, -180, -4520, -40, -4520, -40, -4410, 1310, -4410, 1310, -4540, 1450, -4540, 1450, -4470, 1570, -4470, 1570, -4600, 1695, -4600, 1695, -4490, 1830, -4490, 1830, -4560, 2000, -4560, 2000, 980)
+
 [node name="BuildingShell" type="Polygon2D" parent="."]
-visible = true
+visible = false
 polygon = PackedVector2Array(72, 760, 1208, 760, 1208, -300, 1220, -300, 1220, -1300, 1208, -1300, 1208, -2300, 1220, -2300, 1220, -3300, 1208, -3300, 1208, -4300, 1220, -4300, 1220, -4410, 60, -4410, 60, -4300, 72, -4300, 72, -3300, 60, -3300, 60, -2300, 72, -2300, 72, -1300, 60, -1300, 60, -300, 72, -300)
 color = Color(0.61, 0.51, 0.46, 1)
 
 [node name="FacadeEdgeLeft" type="Polygon2D" parent="."]
-visible = true
+visible = false
 polygon = PackedVector2Array(60, -4410, 82, -4410, 82, 760, 60, 760)
 color = Color(0.45, 0.37, 0.35, 1)
 
 [node name="FacadeEdgeRight" type="Polygon2D" parent="."]
-visible = true
+visible = false
 polygon = PackedVector2Array(1198, -4410, 1220, -4410, 1220, 760, 1198, 760)
 color = Color(0.45, 0.37, 0.35, 1)
 
 [node name="WindowBays" type="Node2D" parent="."]
+visible = false
 
 [node name="Bay_220" type="Polygon2D" parent="WindowBays"]
 visible = true
@@ -45,6 +58,7 @@ polygon = PackedVector2Array(932, -4370, 1188, -4370, 1188, 728, 932, 728)
 color = Color(0.56, 0.46, 0.42, 1)
 
 [node name="FacadePiers" type="Node2D" parent="."]
+visible = false
 
 [node name="Pier_360" type="Polygon2D" parent="FacadePiers"]
 visible = true
@@ -60,6 +74,13 @@ color = Color(0.69, 0.58, 0.51, 1)
 visible = true
 polygon = PackedVector2Array(916, -4370, 924, -4370, 924, 728, 916, 728)
 color = Color(0.69, 0.58, 0.51, 1)
+
+[node name="BrickFacade" type="Polygon2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("brick_tile")
+texture_scale = Vector2(1, 1)
+polygon = PackedVector2Array(60, -4410, 1220, -4410, 1220, 760, 60, 760)
 
 [node name="RoofAccessRoom" type="Node2D" parent="."]
 position = Vector2(640, -4400)
@@ -161,3 +182,27 @@ visible = false
 points = PackedVector2Array(22, 0, 22, -68, 72, -68, 72, 0)
 width = 2.0
 default_color = Color(0.188235, 0.227451, 0.211765, 1)
+
+[node name="StreetPavement" type="Polygon2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("pavement_tile")
+polygon = PackedVector2Array(-720, 650, 2000, 650, 2000, 980, -720, 980)
+
+[node name="EntranceArt" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(96, 482.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("pixel_kit")
+centered = false
+region_enabled = true
+region_rect = Rect2(547, 359, 62, 105)
+
+[node name="EntranceTreeArt" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1060, 568.5)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("pixel_kit")
+centered = false
+region_enabled = true
+region_rect = Rect2(634, 274, 31, 55)

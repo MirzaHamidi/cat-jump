@@ -46,12 +46,11 @@ func _on_energy_changed(current_energy: int, maximum_energy: int) -> void:
 
 func _on_lives_changed(current_lives: int) -> void:
 	for index in range(life_pips.get_child_count()):
-		var pip := life_pips.get_child(index) as Label
+		var pip := life_pips.get_child(index) as TextureRect
 		if pip == null:
 			continue
 		var active := index < current_lives
-		pip.add_theme_color_override("font_color", Color("#666666") if active else Color("#bbbbbb"))
-		pip.modulate.a = 1.0 if active else 0.72
+		pip.modulate = Color.WHITE if active else Color(0.35, 0.35, 0.35, 0.35)
 
 
 func _on_floor_changed(current_floor: int, highest_floor: int) -> void:

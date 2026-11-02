@@ -1,11 +1,32 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/source.png" id="1_pixel_kit"]
 
 [sub_resource type="RectangleShape2D" id="LedgeShape"]
 size = Vector2(240, 16)
 
+[sub_resource type="AtlasTexture" id="PixelWindow"]
+atlas = ExtResource("1_pixel_kit")
+region = Rect2(159, 327, 64, 61)
+
 [node name="StandardWindow" type="StaticBody2D"]
 
 [node name="Visual" type="Node2D" parent="."]
+visible = false
+
+[node name="PixelSill" type="Polygon2D" parent="."]
+color = Color(0.219608, 0.086275, 0.05098, 1)
+polygon = PackedVector2Array(-120, 34, 120, 34, 120, 40, -120, 40)
+
+[node name="PixelSillTop" type="Polygon2D" parent="."]
+color = Color(0.576471, 0.301961, 0.203922, 1)
+polygon = PackedVector2Array(-118, 35, 118, 35, 118, 38, -118, 38)
+
+[node name="PixelWindow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 7.3)
+scale = Vector2(1.4, 1.4)
+texture = SubResource("PixelWindow")
 
 [node name="Shadow" type="Polygon2D" parent="Visual"]
 color = Color(0.19, 0.16, 0.2, 1)

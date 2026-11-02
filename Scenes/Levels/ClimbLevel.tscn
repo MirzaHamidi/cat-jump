@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=19 format=3]
 
 [ext_resource type="PackedScene" path="res://Scenes/Player/Player.tscn" id="1_player"]
 [ext_resource type="Script" uid="uid://cxnb1orqnqmox" path="res://Scripts/ClimbingCamera.gd" id="2_climbing_camera"]
@@ -13,6 +13,12 @@
 [ext_resource type="Script" path="res://Scripts/BirdSpawner.gd" id="11_bird_spawner"]
 [ext_resource type="PackedScene" path="res://Scenes/Gameplay/Bird.tscn" id="12_bird"]
 [ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/ApartmentFacade.tscn" id="13_apartment_facade"]
+
+[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/source.png" id="14_pixel_kit"]
+
+[sub_resource type="AtlasTexture" id="FlowerWindow"]
+atlas = ExtResource("14_pixel_kit")
+region = Rect2(88, 327, 64, 61)
 
 [sub_resource type="RectangleShape2D" id="StartPlatformShape"]
 size = Vector2(1280, 20)
@@ -62,6 +68,9 @@ floor_number = 2
 
 [node name="Floor_002_Window_L3" parent="Traversal/Floor_002/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(-160, 0)
+
+[node name="PixelWindow" parent="Traversal/Floor_002/Traversal/Floor_002_Window_L3" index="3"]
+texture = SubResource("FlowerWindow")
 
 [node name="Floor_003" parent="Traversal" instance=ExtResource("4_floor_tier")]
 position = Vector2(780, 400)
@@ -140,6 +149,9 @@ position = Vector2(0, 0)
 [node name="Floor_009_Window_780" parent="Traversal/Floor_009/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(280, 0)
 
+[node name="PixelWindow" parent="Traversal/Floor_009/Traversal/Floor_009_Window_780" index="3"]
+texture = SubResource("FlowerWindow")
+
 [node name="Floor_010" parent="Traversal" instance=ExtResource("4_floor_tier")]
 position = Vector2(500, -300)
 floor_number = 10
@@ -204,6 +216,9 @@ floor_number = 14
 
 [node name="Floor_014_Window_500" parent="Traversal/Floor_014/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(0, 0)
+
+[node name="PixelWindow" parent="Traversal/Floor_014/Traversal/Floor_014_Window_500" index="3"]
+texture = SubResource("FlowerWindow")
 
 [node name="Floor_014_Window_780" parent="Traversal/Floor_014/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(280, 0)
@@ -287,6 +302,9 @@ floor_number = 20
 
 [node name="Floor_020_Window_500" parent="Traversal/Floor_020/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(0, 0)
+
+[node name="PixelWindow" parent="Traversal/Floor_020/Traversal/Floor_020_Window_500" index="3"]
+texture = SubResource("FlowerWindow")
 
 [node name="Floor_020_Balcony" parent="Traversal/Floor_020/Traversal" instance=ExtResource("10_balcony")]
 position = Vector2(280, 6)
@@ -377,6 +395,9 @@ position = Vector2(0, 0)
 
 [node name="Floor_026_Window_780" parent="Traversal/Floor_026/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(280, 0)
+
+[node name="PixelWindow" parent="Traversal/Floor_026/Traversal/Floor_026_Window_780" index="3"]
+texture = SubResource("FlowerWindow")
 
 [node name="Floor_026_FireEscapeStair" parent="Traversal/Floor_026/Traversal" instance=ExtResource("9_fire_escape_stair")]
 position = Vector2(140, 0)
@@ -568,6 +589,9 @@ position = Vector2(280, 0)
 [node name="Floor_033_Window_1060" parent="Traversal/Floor_033/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(560, 0)
 
+[node name="PixelWindow" parent="Traversal/Floor_033/Traversal/Floor_033_Window_1060" index="3"]
+texture = SubResource("FlowerWindow")
+
 [node name="Floor_034" parent="Traversal" instance=ExtResource("4_floor_tier")]
 position = Vector2(500, -2700)
 floor_number = 34
@@ -705,6 +729,9 @@ position = Vector2(0, 0)
 [node name="Floor_041_Window_780" parent="Traversal/Floor_041/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(280, 0)
 
+[node name="PixelWindow" parent="Traversal/Floor_041/Traversal/Floor_041_Window_780" index="3"]
+texture = SubResource("FlowerWindow")
+
 [node name="Floor_041_Window_Lane" parent="Traversal/Floor_041/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(560, 0)
 
@@ -815,6 +842,9 @@ floor_number = 47
 
 [node name="Floor_047_Window_500" parent="Traversal/Floor_047/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(0, 0)
+
+[node name="PixelWindow" parent="Traversal/Floor_047/Traversal/Floor_047_Window_500" index="3"]
+texture = SubResource("FlowerWindow")
 
 [node name="Floor_047_Window_780" parent="Traversal/Floor_047/Traversal" instance=ExtResource("3_standard_window")]
 position = Vector2(280, 0)
