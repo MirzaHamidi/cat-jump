@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/source.png" id="pixel_kit"]
 
 [sub_resource type="RectangleShape2D" id="StandShape"]
-size = Vector2(144, 14)
+size = Vector2(96, 14)
 
 [node name="ACUnit" type="StaticBody2D"]
 
@@ -100,8 +100,8 @@ polygon = PackedVector2Array(47, 33, 53, 33, 53, 36, 47, 36)
 
 [node name="AirConditionerArt" type="Sprite2D" parent="Visual"]
 texture_filter = 1
-position = Vector2(-60, 6)
-scale = Vector2(3, 3)
+position = Vector2(-40, 6)
+scale = Vector2(2, 2)
 texture = ExtResource("pixel_kit")
 centered = false
 region_enabled = true

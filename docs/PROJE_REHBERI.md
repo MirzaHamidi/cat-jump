@@ -22,6 +22,8 @@ Godot’ta ilgili bölüm sahnesini aç, örneğin `Floor_016` düğümünü se�
 
 Üst katlar mevcut dünya koordinatlarını korur. Bölümü açtığında 2D görünüm boşsa sahne ağacından ilgili katı seçip 2D editörde seçime odaklanabilirsin.
 
+Her bina katında üç hizalı pencere vardır. Katlar arasındaki klima, balkon veya yangın merdiveni birer ara basamaktır; ayrı bir bina katı sayılmaz. Pencere sıraları genellikle 200 piksel aralıklıdır; aradaki basamaklarla yükseliş çoğunlukla 100 pikseldir (zeminden ilk basamağa 106 piksel).
+
 Her katın Inspector’daki `floor_number` değeri ve `RespawnAnchor` noktası kat takibi ve yeniden doğma için kullanılır. 50. kattaki `RooftopGoal`, boss geçişiyle bağlantılıdır. Bunları taşırken bağlantıları kontrol et. Zemin ve platform yerlerini değiştirirsen normal zıplama ile tekrar dene; çarpışma şekilleri görselle aynı şey değildir.
 
 ## Temel dosyalar

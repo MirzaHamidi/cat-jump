@@ -8,30 +8,30 @@
 
 [node name="DistantBackdrop" type="Polygon2D" parent="."]
 visible = false
-polygon = PackedVector2Array(-720, -5200, 2000, -5200, 2000, 980, -720, 980)
+polygon = PackedVector2Array(-720, -10200, 2000, -10200, 2000, 980, -720, 980)
 color = Color(0.31, 0.4, 0.46, 1)
 
 [node name="Sky" type="Polygon2D" parent="."]
 color = Color(0.52, 0.7, 0.85, 1)
-polygon = PackedVector2Array(-720, -5200, 2000, -5200, 2000, 980, -720, 980)
+polygon = PackedVector2Array(-720, -10200, 2000, -10200, 2000, 980, -720, 980)
 
 [node name="DistantCity" type="Polygon2D" parent="."]
 color = Color(0.62, 0.71, 0.8, 1)
-polygon = PackedVector2Array(-720, 980, -720, -4595, -590, -4595, -590, -4490, -480, -4490, -480, -4550, -330, -4550, -330, -4460, -180, -4460, -180, -4520, -40, -4520, -40, -4410, 1310, -4410, 1310, -4540, 1450, -4540, 1450, -4470, 1570, -4470, 1570, -4600, 1695, -4600, 1695, -4490, 1830, -4490, 1830, -4560, 2000, -4560, 2000, 980)
+polygon = PackedVector2Array(-720, 980, -720, -9595, -590, -9595, -590, -9490, -480, -9490, -480, -9550, -330, -9550, -330, -9460, -180, -9460, -180, -9520, -40, -9520, -40, -9410, 1310, -9410, 1310, -9540, 1450, -9540, 1450, -9470, 1570, -9470, 1570, -9600, 1695, -9600, 1695, -9490, 1830, -9490, 1830, -9560, 2000, -9560, 2000, 980)
 
 [node name="BuildingShell" type="Polygon2D" parent="."]
 visible = false
-polygon = PackedVector2Array(72, 760, 1208, 760, 1208, -300, 1220, -300, 1220, -1300, 1208, -1300, 1208, -2300, 1220, -2300, 1220, -3300, 1208, -3300, 1208, -4300, 1220, -4300, 1220, -4410, 60, -4410, 60, -4300, 72, -4300, 72, -3300, 60, -3300, 60, -2300, 72, -2300, 72, -1300, 60, -1300, 60, -300, 72, -300)
+polygon = PackedVector2Array(72, 760, 1208, 760, 1208, -300, 1220, -300, 1220, -1300, 1208, -1300, 1208, -2300, 1220, -2300, 1220, -3300, 1208, -3300, 1208, -9300, 1220, -9300, 1220, -9410, 60, -9410, 60, -9300, 72, -9300, 72, -3300, 60, -3300, 60, -2300, 72, -2300, 72, -1300, 60, -1300, 60, -300, 72, -300)
 color = Color(0.61, 0.51, 0.46, 1)
 
 [node name="FacadeEdgeLeft" type="Polygon2D" parent="."]
 visible = false
-polygon = PackedVector2Array(60, -4410, 82, -4410, 82, 760, 60, 760)
+polygon = PackedVector2Array(60, -9410, 82, -9410, 82, 760, 60, 760)
 color = Color(0.45, 0.37, 0.35, 1)
 
 [node name="FacadeEdgeRight" type="Polygon2D" parent="."]
 visible = false
-polygon = PackedVector2Array(1198, -4410, 1220, -4410, 1220, 760, 1198, 760)
+polygon = PackedVector2Array(1198, -9410, 1220, -9410, 1220, 760, 1198, 760)
 color = Color(0.45, 0.37, 0.35, 1)
 
 [node name="WindowBays" type="Node2D" parent="."]
@@ -39,22 +39,22 @@ visible = false
 
 [node name="Bay_220" type="Polygon2D" parent="WindowBays"]
 visible = true
-polygon = PackedVector2Array(92, -4370, 348, -4370, 348, 728, 92, 728)
+polygon = PackedVector2Array(92, -9370, 348, -9370, 348, 728, 92, 728)
 color = Color(0.56, 0.46, 0.42, 1)
 
 [node name="Bay_500" type="Polygon2D" parent="WindowBays"]
 visible = true
-polygon = PackedVector2Array(372, -4370, 628, -4370, 628, 728, 372, 728)
+polygon = PackedVector2Array(372, -9370, 628, -9370, 628, 728, 372, 728)
 color = Color(0.56, 0.46, 0.42, 1)
 
 [node name="Bay_780" type="Polygon2D" parent="WindowBays"]
 visible = true
-polygon = PackedVector2Array(652, -4370, 908, -4370, 908, 728, 652, 728)
+polygon = PackedVector2Array(652, -9370, 908, -9370, 908, 728, 652, 728)
 color = Color(0.56, 0.46, 0.42, 1)
 
 [node name="Bay_1060" type="Polygon2D" parent="WindowBays"]
 visible = true
-polygon = PackedVector2Array(932, -4370, 1188, -4370, 1188, 728, 932, 728)
+polygon = PackedVector2Array(932, -9370, 1188, -9370, 1188, 728, 932, 728)
 color = Color(0.56, 0.46, 0.42, 1)
 
 [node name="FacadePiers" type="Node2D" parent="."]
@@ -62,17 +62,17 @@ visible = false
 
 [node name="Pier_360" type="Polygon2D" parent="FacadePiers"]
 visible = true
-polygon = PackedVector2Array(356, -4370, 364, -4370, 364, 728, 356, 728)
+polygon = PackedVector2Array(356, -9370, 364, -9370, 364, 728, 356, 728)
 color = Color(0.69, 0.58, 0.51, 1)
 
 [node name="Pier_640" type="Polygon2D" parent="FacadePiers"]
 visible = true
-polygon = PackedVector2Array(636, -4370, 644, -4370, 644, 728, 636, 728)
+polygon = PackedVector2Array(636, -9370, 644, -9370, 644, 728, 636, 728)
 color = Color(0.69, 0.58, 0.51, 1)
 
 [node name="Pier_920" type="Polygon2D" parent="FacadePiers"]
 visible = true
-polygon = PackedVector2Array(916, -4370, 924, -4370, 924, 728, 916, 728)
+polygon = PackedVector2Array(916, -9370, 924, -9370, 924, 728, 916, 728)
 color = Color(0.69, 0.58, 0.51, 1)
 
 [node name="BrickFacade" type="Polygon2D" parent="."]
@@ -80,10 +80,10 @@ texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("brick_tile")
 texture_scale = Vector2(1, 1)
-polygon = PackedVector2Array(60, -4410, 1220, -4410, 1220, 760, 60, 760)
+polygon = PackedVector2Array(60, -9410, 1220, -9410, 1220, 760, 60, 760)
 
 [node name="RoofAccessRoom" type="Node2D" parent="."]
-position = Vector2(640, -4400)
+position = Vector2(640, -9400)
 
 [node name="Shell" type="Polygon2D" parent="RoofAccessRoom"]
 visible = true
@@ -142,35 +142,35 @@ default_color = Color(0.64, 0.65, 0.61, 1)
 
 [node name="RoofCap" type="Polygon2D" parent="."]
 visible = true
-polygon = PackedVector2Array(56, -4424, 1224, -4424, 1224, -4396, 56, -4396)
+polygon = PackedVector2Array(56, -9424, 1224, -9424, 1224, -9396, 56, -9396)
 color = Color(0.77, 0.66, 0.55, 1)
 
 [node name="ParapetLeft" type="Polygon2D" parent="."]
 visible = true
-polygon = PackedVector2Array(60, -4400, 132, -4400, 132, -4290, 60, -4290)
+polygon = PackedVector2Array(60, -9400, 132, -9400, 132, -9290, 60, -9290)
 color = Color(0.67, 0.55, 0.48, 1)
 
 [node name="ParapetRight" type="Polygon2D" parent="."]
 visible = true
-polygon = PackedVector2Array(1148, -4400, 1220, -4400, 1220, -4290, 1148, -4290)
+polygon = PackedVector2Array(1148, -9400, 1220, -9400, 1220, -9290, 1148, -9290)
 color = Color(0.67, 0.55, 0.48, 1)
 
 [node name="LeftFacadeJoint" type="Line2D" parent="."]
 visible = false
-points = PackedVector2Array(60, -4410, 60, 760)
+points = PackedVector2Array(60, -9410, 60, 760)
 width = 2.0
 default_color = Color(0.431373, 0.466667, 0.454902, 1)
 
 [node name="RightFacadeJoint" type="Line2D" parent="."]
 visible = false
-points = PackedVector2Array(1220, -4410, 1220, 760)
+points = PackedVector2Array(1220, -9410, 1220, 760)
 width = 2.0
 default_color = Color(0.431373, 0.466667, 0.454902, 1)
 
 [node name="CorniceUnderside" type="Polygon2D" parent="."]
 visible = false
 color = Color(0.188235, 0.227451, 0.211765, 0.18)
-polygon = PackedVector2Array(60, -4396, 1220, -4396, 1220, -4390, 60, -4390)
+polygon = PackedVector2Array(60, -9396, 1220, -9396, 1220, -9390, 60, -9390)
 
 [node name="AccessRoofCap" type="Polygon2D" parent="RoofAccessRoom"]
 visible = false

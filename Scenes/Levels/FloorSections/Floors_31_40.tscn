@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" path="res://Scenes/Gameplay/StandardWindow.tscn" id="3_standard_window"]
 [ext_resource type="PackedScene" path="res://Scenes/Gameplay/FloorTier.tscn" id="4_floor_tier"]
+[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/source.png" id="14_pixel_kit"]
 [ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/ACUnit.tscn" id="6_ac_unit"]
 [ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/PipeClimb.tscn" id="7_pipe_climb"]
 [ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/FireEscapeStair.tscn" id="9_fire_escape_stair"]
 [ext_resource type="PackedScene" path="res://Scenes/Assets/Environment/Balcony.tscn" id="10_balcony"]
-[ext_resource type="Texture2D" path="res://Assets/Environment/PixelKit/source.png" id="14_pixel_kit"]
 
 [sub_resource type="AtlasTexture" id="FlowerWindow"]
 atlas = ExtResource("14_pixel_kit")
@@ -15,43 +15,25 @@ region = Rect2(88, 327, 64, 61)
 [node name="Floors_31_40" type="Node2D"]
 
 [node name="Floor_031" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -2400)
+position = Vector2(500, -5400)
 floor_number = 31
 
-[node name="Floor_031_Window_500" parent="Floor_031/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(0, 0)
-
-[node name="Floor_031_Window_780" parent="Floor_031/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(280, 0)
-
-[node name="Floor_031_Window_1060" parent="Floor_031/Traversal" instance=ExtResource("3_standard_window")]
+[node name="Floor_031_PipeClimb" parent="Floor_031/Traversal" index="3" instance=ExtResource("7_pipe_climb")]
 position = Vector2(560, 0)
-
-[node name="Floor_031_PipeClimb" parent="Floor_031/Traversal" instance=ExtResource("7_pipe_climb")]
-position = Vector2(140, 0)
 
 [node name="Floor_032" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -2500)
+position = Vector2(500, -5600)
 floor_number = 32
 
-[node name="Floor_032_Window_500" parent="Floor_032/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(0, 0)
-
-[node name="Floor_032_Window_780" parent="Floor_032/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(280, 0)
-
-[node name="Floor_032_Window_1060" parent="Floor_032/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(560, 0)
-
-[node name="Floor_032_FireEscapeStair" parent="Floor_032/Traversal" instance=ExtResource("9_fire_escape_stair")]
-position = Vector2(420, 0)
+[node name="Floor_032_FireEscapeStair" parent="Floor_032/Traversal" index="3" instance=ExtResource("9_fire_escape_stair")]
 visible = false
+position = Vector2(420, 0)
 
 [node name="StairInteractionArea" parent="Floor_032/Traversal/Floor_032_FireEscapeStair" index="1"]
-monitoring = false
-monitorable = false
 collision_layer = 0
 collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="Step_01" parent="Floor_032/Traversal/Floor_032_FireEscapeStair/Steps" index="0"]
 collision_layer = 0
@@ -74,88 +56,49 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="Floor_033" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -2600)
+position = Vector2(500, -5800)
 floor_number = 33
 
-[node name="Floor_033_Window_500" parent="Floor_033/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(0, 0)
-
-[node name="Floor_033_Window_780" parent="Floor_033/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(280, 0)
-
-[node name="Floor_033_Window_1060" parent="Floor_033/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(560, 0)
-
-[node name="PixelWindow" parent="Floor_033/Traversal/Floor_033_Window_1060" index="3"]
-texture = SubResource("FlowerWindow")
-
 [node name="Floor_034" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -2700)
+position = Vector2(500, -6000)
 floor_number = 34
 
-[node name="Floor_034_Window_500" parent="Floor_034/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(0, 0)
-
-[node name="Floor_034_Window_1060" parent="Floor_034/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(560, 0)
-
-[node name="Floor_034_Balcony" parent="Floor_034/Traversal" instance=ExtResource("10_balcony")]
+[node name="Floor_034_Balcony" parent="Floor_034/Traversal" index="2" instance=ExtResource("10_balcony")]
+collision_mask = 0
+collision_layer = 0
+visible = false
 position = Vector2(280, 6)
 
-[node name="Floor_034_ACUnit" parent="Floor_034/Traversal" instance=ExtResource("6_ac_unit")]
-position = Vector2(-280, 28)
+[node name="Floor_034_ACUnit" parent="Floor_034/Traversal" index="3" instance=ExtResource("6_ac_unit")]
 visible = false
+position = Vector2(-280, 28)
 collision_layer = 0
 collision_mask = 0
 
 [node name="Floor_035" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -2800)
+position = Vector2(500, -6200)
 floor_number = 35
 
-[node name="Floor_035_Window_500" parent="Floor_035/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(0, 0)
-
-[node name="Floor_035_Balcony" parent="Floor_035/Traversal" instance=ExtResource("10_balcony")]
-position = Vector2(280, 6)
-
-[node name="RespawnAnchor" parent="Floor_035" index="1"]
-position = Vector2(280, -5)
-
-[node name="Floor_035_Window_Lane" parent="Floor_035/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(560, 0)
+[node name="Floor_035_Balcony" parent="Floor_035/Traversal" index="1" instance=ExtResource("10_balcony")]
+position = Vector2(0, 106)
 
 [node name="Floor_036" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -2900)
+position = Vector2(500, -6400)
 floor_number = 36
 
-[node name="Floor_036_Window_780" parent="Floor_036/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(280, 0)
-
-[node name="Floor_036_Window_Lane" parent="Floor_036/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(560, 0)
-
-[node name="RespawnAnchor" parent="Floor_036" index="1"]
-position = Vector2(280, -5)
-
 [node name="Floor_037" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -3000)
+position = Vector2(500, -6600)
 floor_number = 37
 
-[node name="Floor_037_Window_500" parent="Floor_037/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(0, 0)
-
-[node name="Floor_037_Window_1060" parent="Floor_037/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(560, 0)
-
-[node name="Floor_037_FireEscapeStair" parent="Floor_037/Traversal" instance=ExtResource("9_fire_escape_stair")]
-position = Vector2(420, 0)
+[node name="Floor_037_FireEscapeStair" parent="Floor_037/Traversal" index="2" instance=ExtResource("9_fire_escape_stair")]
 visible = false
+position = Vector2(420, 0)
 
 [node name="StairInteractionArea" parent="Floor_037/Traversal/Floor_037_FireEscapeStair" index="1"]
-monitoring = false
-monitorable = false
 collision_layer = 0
 collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="Step_01" parent="Floor_037/Traversal/Floor_037_FireEscapeStair/Steps" index="0"]
 collision_layer = 0
@@ -178,43 +121,175 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="Floor_038" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -3100)
+position = Vector2(500, -6800)
 floor_number = 38
 
-[node name="Floor_038_Window_500" parent="Floor_038/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(0, 0)
-
-[node name="Floor_038_Window_780" parent="Floor_038/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(280, 0)
-
-[node name="Floor_038_PipeClimb" parent="Floor_038/Traversal" instance=ExtResource("7_pipe_climb")]
-position = Vector2(140, 0)
-
-[node name="Floor_039" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -3200)
-floor_number = 39
-
-[node name="Floor_039_Window_500" parent="Floor_039/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(0, 0)
-
-[node name="Floor_039_Window_780" parent="Floor_039/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(280, 0)
-
-[node name="Floor_039_Window_1060" parent="Floor_039/Traversal" instance=ExtResource("3_standard_window")]
+[node name="Floor_038_PipeClimb" parent="Floor_038/Traversal" index="2" instance=ExtResource("7_pipe_climb")]
 position = Vector2(560, 0)
 
+[node name="Floor_039" parent="." instance=ExtResource("4_floor_tier")]
+position = Vector2(500, -7000)
+floor_number = 39
+
 [node name="Floor_040" parent="." instance=ExtResource("4_floor_tier")]
-position = Vector2(500, -3300)
+position = Vector2(500, -7200)
 floor_number = 40
 
-[node name="Floor_040_Window_500" parent="Floor_040/Traversal" instance=ExtResource("3_standard_window")]
-position = Vector2(0, 0)
-
-[node name="Floor_040_Balcony" parent="Floor_040/Traversal" instance=ExtResource("10_balcony")]
+[node name="Floor_040_Balcony" parent="Floor_040/Traversal" index="1" instance=ExtResource("10_balcony")]
+collision_mask = 0
+collision_layer = 0
+visible = false
 position = Vector2(280, 6)
 
+[node name="WindowLeft" parent="Floor_031/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_031/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_031/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="ACSupport" parent="Floor_031/Traversal" instance=ExtResource("6_ac_unit")]
+position = Vector2(0, 128)
+
+[node name="RespawnAnchor" parent="Floor_031" index="1"]
+position = Vector2(140, -5)
+
+[node name="WindowLeft" parent="Floor_032/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_032/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_032/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="ACSupport" parent="Floor_032/Traversal" instance=ExtResource("6_ac_unit")]
+position = Vector2(280, 128)
+
+[node name="RespawnAnchor" parent="Floor_032" index="1"]
+position = Vector2(420, -5)
+
+[node name="WindowLeft" parent="Floor_033/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_033/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_033/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="PixelWindow" parent="Floor_033/Traversal/WindowRight" index="3"]
+texture = SubResource("FlowerWindow")
+
+[node name="ACSupport" parent="Floor_033/Traversal" instance=ExtResource("6_ac_unit")]
+position = Vector2(280, 128)
+
+[node name="RespawnAnchor" parent="Floor_033" index="1"]
+position = Vector2(140, -5)
+
+[node name="WindowLeft" parent="Floor_034/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_034/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_034/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="ACSupport" parent="Floor_034/Traversal" instance=ExtResource("6_ac_unit")]
+position = Vector2(0, 128)
+
+[node name="RespawnAnchor" parent="Floor_034" index="1"]
+position = Vector2(-140, -5)
+
+[node name="WindowLeft" parent="Floor_035/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_035/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_035/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="RespawnAnchor" parent="Floor_035" index="1"]
+position = Vector2(140, -5)
+
+[node name="WindowLeft" parent="Floor_036/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_036/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_036/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="ACSupport" parent="Floor_036/Traversal" instance=ExtResource("6_ac_unit")]
+position = Vector2(280, 128)
+
+[node name="RespawnAnchor" parent="Floor_036" index="1"]
+position = Vector2(420, -5)
+
+[node name="WindowLeft" parent="Floor_037/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_037/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_037/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="ACSupport" parent="Floor_037/Traversal" instance=ExtResource("6_ac_unit")]
+position = Vector2(280, 128)
+
+[node name="RespawnAnchor" parent="Floor_037" index="1"]
+position = Vector2(140, -5)
+
+[node name="WindowLeft" parent="Floor_038/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_038/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_038/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="ACSupport" parent="Floor_038/Traversal" instance=ExtResource("6_ac_unit")]
+position = Vector2(0, 128)
+
+[node name="RespawnAnchor" parent="Floor_038" index="1"]
+position = Vector2(-140, -5)
+
+[node name="WindowLeft" parent="Floor_039/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_039/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_039/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="ACSupport" parent="Floor_039/Traversal" instance=ExtResource("6_ac_unit")]
+position = Vector2(0, 128)
+
+[node name="RespawnAnchor" parent="Floor_039" index="1"]
+position = Vector2(140, -5)
+
+[node name="WindowLeft" parent="Floor_040/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(-140, 0)
+
+[node name="WindowCenter" parent="Floor_040/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(140, 0)
+
+[node name="WindowRight" parent="Floor_040/Traversal" instance=ExtResource("3_standard_window")]
+position = Vector2(420, 0)
+
+[node name="ACSupport" parent="Floor_040/Traversal" instance=ExtResource("6_ac_unit")]
+position = Vector2(280, 128)
+
 [node name="RespawnAnchor" parent="Floor_040" index="1"]
-position = Vector2(280, -5)
+position = Vector2(420, -5)
 
 [editable path="Floor_031"]
 [editable path="Floor_032"]

@@ -14,6 +14,7 @@ signal bird_encounter_requested
 @onready var bird_spawner: BirdSpawner = $Hazards/BirdSpawner
 @onready var rooftop_goal: Area2D = get_node_or_null(rooftop_goal_path) as Area2D
 @onready var victory_floor: FloorTier = get_node_or_null(victory_floor_path) as FloorTier
+@onready var rooftop_deck: StaticBody2D = victory_floor.get_node_or_null("Traversal/RooftopDeck") as StaticBody2D if victory_floor else null
 
 var bird_contact_grace_remaining: float = 0.0
 
@@ -53,10 +54,24 @@ func _process(delta: float) -> void:
 
 
 func _on_player_landed_on_surface(collider: Object) -> void:
-	var landed_node := collider as Node
+	var surface := collider as Node
+	var landed_node := surface
 	while landed_node != null:
 		if landed_node is FloorTier:
 			var floor_tier := landed_node as FloorTier
+			var is_window := surface.scene_file_path == "res://Scenes/Gameplay/StandardWindow.tscn"
+			var is_start := floor_tier.floor_number == 1 and surface.name == &"StartPlatform"
+			var is_roof := floor_tier == victory_floor and surface == rooftop_deck
+			if not (is_window or is_start or is_roof):
+				var is_intermediate := surface.scene_file_path in [
+					"res://Scenes/Assets/Environment/ACUnit.tscn",
+					"res://Scenes/Assets/Environment/Balcony.tscn",
+					"res://Scenes/Assets/Environment/FireEscapePlatform.tscn",
+				]
+				var previous_floor := maxi(floor_tier.floor_number - 1, 1)
+				if is_intermediate and run_state and run_state.current_floor > previous_floor:
+					run_state.set_floor_progress(previous_floor)
+				return
 			if run_state:
 				run_state.set_floor_progress(floor_tier.floor_number)
 			if floor_tier.floor_number >= 16 and floor_tier.floor_number < 49:
@@ -84,8 +99,22 @@ func _request_rooftop_victory_if_ready() -> void:
 		return
 	if run_state.current_floor < victory_floor.floor_number:
 		return
+	if rooftop_goal == null or not rooftop_goal.get_overlapping_bodies().has(player):
+		return
+	if not _is_player_on_rooftop_deck():
+		return
 	_rooftop_goal_request_sent = true
 	victory_requested.emit()
+
+
+func _is_player_on_rooftop_deck() -> bool:
+	if rooftop_deck == null or not player.is_on_floor():
+		return false
+	for i in range(player.get_slide_collision_count()):
+		var collision := player.get_slide_collision(i)
+		if collision.get_collider() == rooftop_deck and collision.get_normal().dot(Vector2.UP) > 0.7:
+			return true
+	return false
 
 
 func stop_for_victory() -> void:
