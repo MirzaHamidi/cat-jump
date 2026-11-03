@@ -6,12 +6,12 @@ const META_KEY := &"cat_jump_crt_enabled"
 
 
 func _ready() -> void:
-    filter_rect.visible = bool(Engine.get_meta(META_KEY, false))
+    filter_rect.visible = bool(Engine.get_meta(META_KEY, true))
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
     if event is InputEventKey and event.pressed and not event.echo and (event.keycode == KEY_F6 or event.physical_keycode == KEY_F6):
-        var enabled := not bool(Engine.get_meta(META_KEY, false))
+        var enabled := not bool(Engine.get_meta(META_KEY, true))
         Engine.set_meta(META_KEY, enabled)
         filter_rect.visible = enabled
         get_viewport().set_input_as_handled()
