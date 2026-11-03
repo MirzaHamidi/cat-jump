@@ -79,8 +79,8 @@ collision_mask = 0
 position = Vector2(500, -6200)
 floor_number = 35
 
-[node name="Floor_035_Balcony" parent="Floor_035/Traversal" index="1" instance=ExtResource("10_balcony")]
-position = Vector2(0, 106)
+[node name="Floor_035_ACSupport" parent="Floor_035/Traversal" index="1" instance=ExtResource("6_ac_unit")]
+position = Vector2(0, 128)
 
 [node name="Floor_036" parent="." instance=ExtResource("4_floor_tier")]
 position = Vector2(500, -6400)
@@ -290,6 +290,12 @@ position = Vector2(280, 128)
 
 [node name="RespawnAnchor" parent="Floor_040" index="1"]
 position = Vector2(420, -5)
+
+[node name="Floor_035_Balcony" parent="Floor_035/Traversal" instance=ExtResource("10_balcony")]
+collision_layer = 0
+collision_mask = 0
+position = Vector2(-140, 6)
+scale = Vector2(0.8, 1)
 
 [editable path="Floor_031"]
 [editable path="Floor_032"]

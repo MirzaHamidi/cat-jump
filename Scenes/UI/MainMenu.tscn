@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://5i25wm4v42vr" load_steps=6]
+[gd_scene format=3 uid="uid://5i25wm4v42vr" load_steps=7]
 
 [ext_resource type="SpriteFrames" path="res://Animations/OrangeCat.tres" id="1_vytfc"]
 [ext_resource type="FontFile" uid="uid://l6ag6n3mv5hq" path="res://Assets/UI/Fonts/Splatch.ttf" id="2_t475i"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" path="res://Scenes/Levels/Run.tscn" id="4_run"]
 
 [ext_resource type="Theme" path="res://Assets/UI/GrayboxTheme.tres" id="graybox_theme"]
+
+[ext_resource type="PackedScene" path="res://Scenes/UI/CRTOverlay.tscn" id="crt_experiment"]
 
 [node name="MainMenu" type="Node2D" unique_id=588153692]
 script = ExtResource("3_script")
@@ -93,6 +95,8 @@ offset_right = 1136.0
 offset_bottom = 569.0
 mouse_filter = 2
 color = Color(0.6, 0.6, 0.6, 1.0)
+
+[node name="CRTOverlay" parent="." instance=ExtResource("crt_experiment")]
 
 [connection signal="pressed" from="MenuUI/Control/MenuButtons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuUI/Control/MenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]
