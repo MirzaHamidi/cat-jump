@@ -362,7 +362,24 @@ func _sync_ui() -> void:
 	health_bar.value = hp
 	health_value.text = "%d / %d" % [hp, maximum_hp]
 	lives_label.text = "Lives %d     Energy %d" % [run_state.lives, run_state.energy]
-	var messages := {State.INTRO: "A / D move    Space jump    Esc pause", State.CHARGE_WINDUP: "Charge — jump over the dog", State.CHARGE: "Jump!", State.IMPACT: "Crash! Dog takes damage", State.RECOVER: "Dog recovers", State.BITE_APPROACH: "Dog approaches", State.BITE_WINDUP: "Bite — move out of the marked reach", State.BITE_ACTIVE: "Bite!", State.BITE_RECOVER: "Dog recovers", State.BARK: "Bark! The owner is coming", State.OWNER_ENTER: "Watch the three target points", State.OWNER_WINDUP: "Stick %d / 3 — leave the marked column" % (_strike_index + 1), State.OWNER_ACTIVE: "Stick %d / 3!" % (_strike_index + 1), State.OWNER_GAP: "Next target", State.OWNER_RECOVER: "Three strikes complete", State.FINISHED: ""}
+	var messages := {
+		State.INTRO: "A / D move    Space jump    Esc pause",
+		State.CHARGE_WINDUP: "Charge — jump over the dog",
+		State.CHARGE: "Jump!",
+		State.IMPACT: "Crash! Dog takes damage",
+		State.RECOVER: "Dog recovers",
+		State.BITE_APPROACH: "Dog approaches",
+		State.BITE_WINDUP: "Bite — move out of the marked reach",
+		State.BITE_ACTIVE: "Bite!",
+		State.BITE_RECOVER: "Dog recovers",
+		State.BARK: "Bark! The owner is coming",
+		State.OWNER_ENTER: "Watch the three target points",
+		State.OWNER_WINDUP: "Stick %d / 3 — leave the marked column" % (_strike_index + 1),
+		State.OWNER_ACTIVE: "Stick %d / 3!" % (_strike_index + 1),
+		State.OWNER_GAP: "Next target",
+		State.OWNER_RECOVER: "Three strikes complete",
+		State.FINISHED: "",
+	}
 	cue_label.text = messages.get(state, "")
 	var displayed_rect := _attack_rect if _attack_rect.has_area() else _warning_rect
 	attack_visual.color = Color(0.64, 0.32, 0.26, 0.15) if _attack_rect.has_area() else Color(0.69, 0.54, 0.31, 0.12)

@@ -5,8 +5,8 @@ signal victory_requested
 signal bird_encounter_requested
 
 @export var run_state_path: NodePath = NodePath("../../RunState")
-@export_node_path("Area2D") var rooftop_goal_path: NodePath = NodePath("Traversal/Floor_050/Traversal/RooftopGoal")
-@export_node_path("FloorTier") var victory_floor_path: NodePath = NodePath("Traversal/Floor_050")
+@export_node_path("Area2D") var rooftop_goal_path: NodePath = NodePath("Traversal/Floors_41_50/Floor_050/Traversal/RooftopGoal")
+@export_node_path("FloorTier") var victory_floor_path: NodePath = NodePath("Traversal/Floors_41_50/Floor_050")
 
 @onready var player: CharacterBody2D = $Player
 @onready var run_state: RunState = get_node_or_null(run_state_path) as RunState
@@ -34,7 +34,7 @@ var _saved_camera_highest_y := 0.0
 func _ready() -> void:
 	player.landed_on_surface.connect(_on_player_landed_on_surface)
 	bird_spawner.bird_hit_requested.connect(_on_bird_hit_requested)
-	var starting_tier := get_node_or_null("Traversal/Floor_001") as FloorTier
+	var starting_tier := get_node_or_null("Traversal/Floors_01_10/Floor_001") as FloorTier
 	if starting_tier and run_state:
 		run_state.set_floor_progress(starting_tier.floor_number)
 	if rooftop_goal:
@@ -174,11 +174,11 @@ func _find_respawn_anchor(floor_number: int) -> Marker2D:
 	var traversal := get_node_or_null("Traversal")
 	if traversal == null:
 		return null
-	for child in traversal.get_children():
-		var tier := child as FloorTier
-		if tier == null or tier.floor_number != floor_number:
-			continue
-		return tier.get_node_or_null("RespawnAnchor") as Marker2D
+	for section in traversal.get_children():
+		for child in section.get_children():
+			var tier := child as FloorTier
+			if tier != null and tier.floor_number == floor_number:
+				return tier.get_node_or_null("RespawnAnchor") as Marker2D
 	return null
 
 
