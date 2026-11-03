@@ -19,6 +19,18 @@ volume_db = -14.0
 [node name="RunState" type="Node" parent="."]
 script = ExtResource("3_run_state")
 
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Sky" type="ColorRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0862745, 0.14902, 0.254902, 1)
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="ClimbLevel" parent="World" instance=ExtResource("2_climb_level")]
