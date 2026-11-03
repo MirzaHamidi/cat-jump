@@ -8,7 +8,7 @@ shader = ExtResource("2_shader")
 
 [node name="CRTOverlay" type="CanvasLayer"]
 process_mode = 3
-layer = 90
+layer = 2
 script = ExtResource("1_script")
 
 [node name="Filter" type="ColorRect" parent="."]

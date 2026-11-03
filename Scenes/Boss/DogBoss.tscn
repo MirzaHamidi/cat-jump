@@ -146,6 +146,7 @@ color = Color(1, 0.24, 0.20, 0.22)
 visible = false
 
 [node name="HUD" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="BossLabel" type="Label" parent="HUD"]
 offset_left = 476.0
